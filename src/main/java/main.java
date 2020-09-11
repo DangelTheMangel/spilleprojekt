@@ -7,3 +7,4 @@ public class main extends PApplet {
 
 //skuffer er sejere end casper
 //du en boomer marius
+//casper har sex med ?
