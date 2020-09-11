@@ -7,7 +7,7 @@ public class main extends PApplet {
 
     @Override
     public void settings() {
-        //frame.setResizable(true);
+
         size(500,500);
 
     }
@@ -24,7 +24,7 @@ public class main extends PApplet {
         btnSize.tegnKnap();
         if(btnSize.erKlikket()){
             println("omg!!!!!!!!!");
-            //frame.setSize((int)random(100,500),(int)random(100,500));
+
         }
 
     }
@@ -32,7 +32,7 @@ public class main extends PApplet {
     @Override
     public void mousePressed() {
         btnSize.registrerKlik(mouseX,mouseY);
-
+        frame.setSize((int)random(100,500),(int)random(100,500));
 
     }
 }
