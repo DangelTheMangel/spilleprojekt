@@ -29,6 +29,7 @@ public class Car {
         //Caper
 
         //Lav noget med at den skal kunne falde af platformen.
+
     }
 
     void drawCar() {
