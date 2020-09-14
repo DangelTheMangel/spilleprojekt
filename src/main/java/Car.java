@@ -26,6 +26,7 @@ public class Car {
         //Caper
 
         //Lav noget med at den skal kunne falde af platformen.
+
     }
    public void drawCar(){
         p.rect(posit.x,posit.y,50,50);

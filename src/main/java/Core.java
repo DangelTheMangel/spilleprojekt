@@ -2,6 +2,8 @@ import processing.core.PApplet;
 import processing.core.PSurface;
 import processing.core.PVector;
 
+import java.util.ArrayList;
+
 public class Core extends PApplet {
     public static void main(String[] args){ PApplet.main("Core");}
     Settings settings;
@@ -10,6 +12,10 @@ public class Core extends PApplet {
     public void settings() {
         size(500,500);
     }
+
+    ArrayList<CarCPU> CarCPUs = new ArrayList<CarCPU>();
+    CarPlayer Player = new CarPlayer();
+    public float arenaRadius;
 
     @Override
     public void setup() {
@@ -26,6 +32,9 @@ public class Core extends PApplet {
         car.drawCar();
 
 
+        arenaRadius-=1;
+
+        ellipse(arenaRadius,arenaRadius,height/2,height/2);
     }
 
     @Override
