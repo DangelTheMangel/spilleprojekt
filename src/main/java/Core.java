@@ -7,15 +7,14 @@ import java.util.ArrayList;
 public class Core extends PApplet {
     public static void main(String[] args){ PApplet.main("Core");}
     //  Settings settings;
-    Car car = new Car(new PVector(250,200),new PVector(0,-2));
+    Car car = new Car(new PVector(250,200),new PVector(0,-1));
 
     @Override
     public void settings() { size(500,500); }
 
     ArrayList<CarCPU> CarCPUs = new ArrayList<CarCPU>();
-    
+
     public float arenaRadius =500;
-    float rotation=0;
 
     @Override
     public void setup() {
@@ -35,9 +34,17 @@ public class Core extends PApplet {
         car.Movement();
 
         car.drawCar();
-        car.pressing();
         rect(100,50,50,50);
+        car.collsion(arenaRadius);
 
+        if(car.rotating){
+            arenaRadius -= 0.2;
+        }
+
+
+    }
+    public void keyPressed(){
+        car.pressing();
     }
 
 //    @Override
