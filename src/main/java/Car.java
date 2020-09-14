@@ -33,6 +33,7 @@ public class Car {
     }
 
     void drawCar() {
+        p.fill(0,0,250);
         p.rect(posit.x, posit.y, 50, 50);
 
     }
