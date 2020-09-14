@@ -7,10 +7,11 @@ import java.util.ArrayList;
 public class Core extends PApplet {
     public static void main(String[] args){ PApplet.main("Core");}
     //  Settings settings;
-    Car car = new Car(new PVector(250,200),new PVector(0,-1));
+    CarPlayer car = new CarPlayer(new PVector(250,200),new PVector(0,-1));
+    MainMenu menu;
 
     @Override
-    public void settings() { size(500,500); }
+    public void settings() { size(640, 480); }
 
     ArrayList<CarCPU> CarCPUs = new ArrayList<CarCPU>();
 
@@ -21,25 +22,44 @@ public class Core extends PApplet {
 
         //  settings = new Settings(this);
         car.p = this;
+        menu = new MainMenu(this, 1);
+        arenaRadius =width;
     }
 
 
     @Override
     public void draw() {
-        clear();
-        //    settings.DrawSettings();
 
-        fill(250,0,0);
-        ellipse(height/2,width/2,arenaRadius,arenaRadius);
-        car.Movement();
+        menu.DrawMenu();
 
-        car.drawCar();
-        rect(100,50,50,50);
-        car.collsion(arenaRadius);
 
-        if(car.rotating){
-            arenaRadius -= 0.2;
+        if(menu.btnPlay.erKlikket()){
+
+            clear();
+            background(200);
+            //    settings.DrawSettings();
+
+            fill(250,0,0);
+            ellipse(width/2,height/2,arenaRadius,arenaRadius);
+            car.Movement();
+
+            car.drawCar();
+            rect(100,50,50,50);
+            car.collsion(arenaRadius);
+
+            if(car.rotating){
+                arenaRadius -= 0.2;
+            }
+
+            if(car.collison){
+                car.rotating = false;
+                menu.btnPlay.registrerRelease();
+                car.collison = false;
+                exit();
+            }
+
         }
+
 
 
     }
@@ -48,7 +68,7 @@ public class Core extends PApplet {
     }
 
 //    @Override
-    //  public void mouseClicked() {
-    //      settings.mouseClickedSettings();
-    //  }
+     public void mouseClicked() {
+         menu.MouseClickedMenu();
+      }
 }

@@ -10,8 +10,10 @@ public class MainMenu {
     Settings settings;
 
 
+
     public MainMenu(PApplet p, int i) {
         this.p = p;
+
         btnPlay = new AlmindeligKnap(p,p.width/4,p.height/6,p.width/2, p.height/12,"PLay");
         btnInfo = new AlmindeligKnap(p,p.width/4,p.height/12 + p.height/6 + 10   ,p.width/2, p.height/12,"How to play");
         btnSetting = new AlmindeligKnap(p,p.width/4,2*p.height/12 + p.height/6 + 20,p.width/2, p.height/12,"Settings");
@@ -22,6 +24,8 @@ public class MainMenu {
 
 
     public void DrawMenu(){
+
+
         p.clear();
         p.background(200);
 
@@ -34,10 +38,7 @@ public class MainMenu {
         btnSetting.tegnKnap();
         btnQuit.tegnKnap();
 
-        if(btnPlay.erKlikket()){
-            p.println("Casper er en kæmpe booomer");
-            btnPlay.registrerRelease();
-        }
+
         if(btnQuit.erKlikket()){
             p.exit();
             btnQuit.registrerRelease();

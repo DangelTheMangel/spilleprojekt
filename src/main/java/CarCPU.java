@@ -13,8 +13,8 @@ public class CarCPU extends Car {
         rotationMax = p.random(0f,1f);
     }
 
-
-    void CPUmove(){
+    @Override
+    void Movement(){
         //Udregninger
         rotation = p.random(rotationMin,rotationMax);
         speed.rotate(rotation);
@@ -24,7 +24,31 @@ public class CarCPU extends Car {
 
         }
 
+    @Override
+    void drawCar() {
+        p.fill(0,0,250);
+        p.pushMatrix();
+        if(rotating == true) {
+            p.rectMode(p.CENTER);
+            p.translate(posit.x, posit.y);
+            p.rotate(speed.heading());
+        }
+        p.rect(0, 0, 50, 20);
+        p.popMatrix();
     }
+
+    @Override
+    void collsion(float rad) {
+        PVector lengthCar = new PVector(posit.x - p.width / 2, posit.y - p.height / 2);
+        lengthCar.mag();
+        p.line(p.width / 2, p.height / 2, p.width / 2 + lengthCar.x, p.height / 2 + lengthCar.y);
+
+        if (rad / 2 < lengthCar.mag()) {
+            p.println("Du Boomer");
+        }
+    }
+
+}
 
 /*Casper Tænker:
     Den skal gå tilfældige steder hen. Dette sker med at den tilføjer bestemte mængder af drej.
