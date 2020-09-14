@@ -4,34 +4,38 @@ import processing.core.PVector;
 
 public class Core extends PApplet {
     public static void main(String[] args){ PApplet.main("Core");}
-    Settings settings;
-    Car car = new Car(new PVector(200,200),new PVector(1,2));
+  //  Settings settings;
+    Car car = new Car(new PVector(250,200),new PVector(0,2));
+
     @Override
-    public void settings() {
-        size(500,500);
-    }
+    public void settings() { size(500,500); }
 
     @Override
     public void setup() {
 
-        settings = new Settings(this);
+      //  settings = new Settings(this);
         car.p = this;
     }
 
 
     @Override
     public void draw() {
-        settings.DrawSettings();
+            clear();
+        //    settings.DrawSettings();
         car.Movement();
         car.drawCar();
+        rect(100,50,50,50);
 
 
     }
-
-    @Override
-    public void mouseClicked() {
-        settings.mouseClickedSettings();
+    public void keyPressed(){
+        car.pressing();
     }
+
+//    @Override
+  //  public void mouseClicked() {
+  //      settings.mouseClickedSettings();
+  //  }
 }
 
 
