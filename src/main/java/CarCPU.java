@@ -1,8 +1,30 @@
+import processing.core.PApplet;
 import processing.core.PVector;
 
-public class CarCPU{
+import java.util.Random;
 
-}
+public class CarCPU extends Car {
+    PApplet p;
+    float rotationMax, rotationMin, rotation;
+
+    CarCPU(PVector P, PVector S) {
+        super(P, S);
+        rotationMin = p.random(-1f,0f);
+        rotationMax = p.random(0f,1f);
+    }
+
+
+    void CPUmove(){
+        //Udregninger
+        rotation = p.random(rotationMin,rotationMax);
+        speed.rotate(rotation);
+
+        //Visuelt
+        p.rect(posit.x, posit.y, 50, 50);
+
+        }
+
+    }
 
 /*Casper Tænker:
     Den skal gå tilfældige steder hen. Dette sker med at den tilføjer bestemte mængder af drej.
