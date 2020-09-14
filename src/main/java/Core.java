@@ -13,8 +13,9 @@ public class Core extends PApplet {
     public void settings() { size(500,500); }
 
     ArrayList<CarCPU> CarCPUs = new ArrayList<CarCPU>();
-
+    
     public float arenaRadius =500;
+    float rotation=0;
 
     @Override
     public void setup() {
@@ -34,14 +35,9 @@ public class Core extends PApplet {
         car.Movement();
 
         car.drawCar();
+        car.pressing();
         rect(100,50,50,50);
 
-
-
-
-    }
-    public void keyPressed(){
-        car.pressing();
     }
 
 //    @Override
