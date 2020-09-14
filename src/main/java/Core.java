@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Core extends PApplet {
     public static void main(String[] args){ PApplet.main("Core");}
-  //  Settings settings;
+    //  Settings settings;
     Car car = new Car(new PVector(250,200),new PVector(0,-2));
 
     @Override
@@ -19,14 +19,14 @@ public class Core extends PApplet {
     @Override
     public void setup() {
 
-      //  settings = new Settings(this);
+        //  settings = new Settings(this);
         car.p = this;
     }
 
 
     @Override
     public void draw() {
-            clear();
+        clear();
         //    settings.DrawSettings();
 
         fill(250,0,0);
@@ -45,9 +45,7 @@ public class Core extends PApplet {
     }
 
 //    @Override
-  //  public void mouseClicked() {
-  //      settings.mouseClickedSettings();
-  //  }
+    //  public void mouseClicked() {
+    //      settings.mouseClickedSettings();
+    //  }
 }
-
-

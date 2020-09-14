@@ -11,6 +11,7 @@ public class Settings  {
     boolean updated = false;
     AlmindeligKnap btnUpSize;
     AlmindeligKnap btnDownSize;
+    AlmindeligKnap exitSettingse;
     PVector[] resolution = {new PVector(640, 480),new PVector(1080, 768), new PVector(1280, 720),
     new PVector(1920, 1080), new PVector(0, 0)};
 
@@ -18,6 +19,7 @@ public class Settings  {
         this.p = p;
         btnUpSize = new AlmindeligKnap(p, 0, 0, p.height / 6, p.height / 6, "<");
         btnDownSize = new AlmindeligKnap(p, (p.height / 6) * 4 + (p.height / 6), 0, p.height / 6, p.height / 6, "> ");
+        exitSettingse = new AlmindeligKnap(p, p.width/2, p.height - p.height/12, p.width/2, p.height/12,"Back");
     }
 
     public void DrawSettings(){
@@ -35,6 +37,7 @@ public class Settings  {
 
         btnUpSize.tegnKnap();
         btnDownSize.tegnKnap();
+        exitSettingse.tegnKnap();
 
         if(btnDownSize.erKlikket()) {
             a--;
@@ -69,6 +72,9 @@ public class Settings  {
             }
             btnUpSize.registrerRelease();
         }
+
+
+
     }
 
     public static final javax.swing.JFrame getJFrame(final PSurface surface) {
@@ -82,6 +88,8 @@ public class Settings  {
 
         btnUpSize.registrerKlik(p.mouseX,p.mouseY);
         btnDownSize.registrerKlik(p.mouseX,p.mouseY);
+
+        exitSettingse.registrerKlik(p.mouseX,p.mouseY);
 
     }
 }
