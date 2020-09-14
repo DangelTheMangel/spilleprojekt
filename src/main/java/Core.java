@@ -13,7 +13,7 @@ public class Core extends PApplet {
     public void settings() { size(500,500); }
 
     ArrayList<CarCPU> CarCPUs = new ArrayList<CarCPU>();
-    CarPlayer Player = new CarPlayer(new PVector(width/2,height/2),new PVector(1,1));
+    
     public float arenaRadius;
 
     @Override

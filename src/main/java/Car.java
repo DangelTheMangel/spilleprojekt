@@ -40,10 +40,10 @@ public class Car {
     void pressing() {
         if (p.keyPressed) {
             if (p.key == 'a'||p.key =='A') {
-                speed.rotate(1000);
+                speed.rotate(50);
             }
             if(p.key =='d'||p.key=='D'){
-                speed.rotate(-1000);
+                speed.rotate(50);
             }
 
         }
