@@ -43,7 +43,7 @@ public class Car {
                 speed.rotate(50);
             }
             if(p.key =='d'||p.key=='D'){
-                speed.rotate(50);
+                speed.rotate(-50);
             }
 
         }
