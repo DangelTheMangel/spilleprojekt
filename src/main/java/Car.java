@@ -4,6 +4,7 @@ import processing.core.PVector;
 public class Car {
     PApplet p;
     //movement
+    boolean rotating = false;
     PVector posit = new PVector(100, 200); //Position
     PVector speed = new PVector(0, 1); //Speed
     float sMulti; //Speed Multiplier (Det her skal bruges med speed powerups og sådan...
@@ -34,14 +35,21 @@ public class Car {
 
     void drawCar() {
         p.fill(0,0,250);
-        p.rect(posit.x, posit.y, 50, 50);
-
+        p.pushMatrix();
+        if(rotating == true) {
+            p.rectMode(p.CENTER);
+            p.translate(posit.x, posit.y);
+            p.rotate(speed.heading());
+        }
+        p.rect(0, 0, 50, 20);
+        p.popMatrix();
     }
 
     void pressing() {
         if (p.keyPressed) {
             if (p.key == 'a'||p.key =='A') {
                 speed.rotate(50);
+                rotating = true;
             }
             if(p.key =='d'||p.key=='D'){
                 speed.rotate(-50);
