@@ -42,7 +42,7 @@ public class CarPlayer  extends Car {
         p.image(car, 0,0);
         p.popMatrix();
 
-        p.rectMode(p.LEFT);
+        p.rectMode(p.CORNER);
     }
 
     void move() {

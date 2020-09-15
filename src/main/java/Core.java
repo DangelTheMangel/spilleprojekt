@@ -20,6 +20,7 @@ public class Core extends PApplet {
 
     @Override
     public void setup() {
+        print("w "+ width + "h " + height);
         playerCar = loadImage("dårligblå.png");
         car = new CarPlayer(new PVector(250,200),new PVector(0,-1), playerCar);
 
@@ -38,6 +39,7 @@ public class Core extends PApplet {
 
         if(menu.btnPlay.erKlikket()){
 
+
             clear();
             background(200);
             //    settings.DrawSettings();
@@ -52,9 +54,12 @@ public class Core extends PApplet {
             if(car.rotating){
                 arenaRadius -= 0.2;
                 car.collsion(arenaRadius);
+            }else {
+                arenaRadius = width;
             }
 
             if(car.collison){
+
                 setup();
 
             }

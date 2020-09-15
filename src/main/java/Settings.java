@@ -70,6 +70,7 @@ public class Settings  {
                 p.frame.setLocation(x, y);
                 p.frame.setSize((int) resolution[a].x, (int) resolution[a].y);
             }
+
             btnUpSize.registrerRelease();
         }
 
