@@ -3,7 +3,7 @@ import processing.core.PApplet;
 
 public class MainMenu {
     PApplet p;
-    AlmindeligKnap btnPlay;
+    ToggleKnap btnPlay;
     AlmindeligKnap btnSetting;
     AlmindeligKnap btnInfo;
     AlmindeligKnap btnQuit;
@@ -14,7 +14,7 @@ public class MainMenu {
     public MainMenu(PApplet p, int i) {
         this.p = p;
 
-        btnPlay = new AlmindeligKnap(p,p.width/4,p.height/6,p.width/2, p.height/12,"PLay");
+        btnPlay = new ToggleKnap(p,p.width/4,p.height/6,p.width/2, p.height/12,"PLay");
         btnInfo = new AlmindeligKnap(p,p.width/4,p.height/12 + p.height/6 + 10   ,p.width/2, p.height/12,"How to play");
         btnSetting = new AlmindeligKnap(p,p.width/4,2*p.height/12 + p.height/6 + 20,p.width/2, p.height/12,"Settings");
         btnQuit = new AlmindeligKnap(p,p.width/4,3*p.height/12 + p.height/6 + 30,p.width/2, p.height/12,"Quit");

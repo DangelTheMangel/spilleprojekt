@@ -45,17 +45,18 @@ public class Core extends PApplet {
             fill(250,0,0);
             ellipse(width/2,height/2,arenaRadius,arenaRadius);
             car.Movement();
-
             car.drawCar();
             rect(100,50,50,50);
-            car.collsion(arenaRadius);
+
 
             if(car.rotating){
                 arenaRadius -= 0.2;
+                car.collsion(arenaRadius);
             }
 
             if(car.collison){
-                print("boomer");
+                setup();
+
             }
 
 
