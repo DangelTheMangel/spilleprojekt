@@ -61,18 +61,14 @@ public class CarPlayer  extends Car {
         boolean D = false;
         boolean A = false;
 
-        if (p.keyPressed && p.key == 'd') {
+        if (p.keyPressed && p.key == 'd' || p.keyPressed && p.key == 'D') {
             D = true;
         }
-        if (p.keyPressed && p.key == 'D') {
-            D = true;
-        }
-        if (p.keyPressed && p.key == 'a' ) {
+
+        if (p.keyPressed && p.key == 'a' || p.keyPressed && p.key == 'A') {
             A = true;
         }
-        if (p.keyPressed && p.key == 'A' ) {
-            A = true;
-        }
+
         if (A) {
             speed.rotate(-0.1f);
             rotating = true;
