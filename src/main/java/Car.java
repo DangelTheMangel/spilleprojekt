@@ -94,24 +94,23 @@ public class Car {
 
     void Controls() { //Noget går galt her når man trykker på begge knapper på samme tid,
                       // og vi skal have noget der tjekker om det sker og gør noget ved det.
-            boolean D = false;
-            boolean A = false;
-
-            if(p.keyPressed && p.key == 'd'){
-                D=true;
-            }
-            if(p.keyPressed && p.key == 'a'){
-                A=true;
-            }
-            if(A){
-                speed.rotate(-0.1f);
-                rotating = true;
-            }
-            else if(D){
-                speed.rotate(0.1f);
-            }else{
-                speed.rotate(0);
+        if (p.keyPressed) {
+                boolean D = false;
+                boolean A = false;
+                if(p.keyPressed && p.key == 'd'){
+                    D=true;
+                }
+                if(p.keyPressed && p.key == 'a'){
+                    A=true;
+                }
+                if(A){
+                    speed.rotate(-0.1f);
+                    rotating = true;
+                }
+                else if(D){
+                speed.rotate(0.1f);}
+                else{
+                speed.rotate(0);}
             }
         }
-
     }

@@ -28,8 +28,8 @@ public class Core extends PApplet {
 
     @Override
     public void draw() {
-
         menu.DrawMenu();
+        car.Controls();
 
 
         if(menu.btnPlay.erKlikket()){
@@ -61,9 +61,6 @@ public class Core extends PApplet {
 
 
 
-    }
-    public void keyPressed(){
-        car.Controls();
     }
 
 //    @Override

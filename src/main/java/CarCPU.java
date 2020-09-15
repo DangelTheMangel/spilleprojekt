@@ -37,7 +37,7 @@ public class CarCPU extends Car {
         p.popMatrix();
     }
 
-    @Override
+
     void collsion(float rad) {
         PVector lengthCar = new PVector(posit.x - p.width / 2, posit.y - p.height / 2);
         lengthCar.mag();
