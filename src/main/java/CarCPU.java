@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 import processing.core.PVector;
 
 import java.util.Random;
@@ -6,9 +7,10 @@ import java.util.Random;
 public class CarCPU extends Car {
     PApplet p;
     float rotationMax, rotationMin, rotation;
+    PImage car;
 
-    CarCPU(PVector P, PVector S) {
-        super(P, S);
+    CarCPU(PVector P, PVector S, PImage car) {
+        super(P, S , car );
         rotationMin = p.random(-1f,0f);
         rotationMax = p.random(0f,1f);
     }

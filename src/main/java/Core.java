@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 import processing.core.PVector;
 
 import java.util.ArrayList;
@@ -6,7 +7,8 @@ import java.util.ArrayList;
 public class Core extends PApplet {
     public static void main(String[] args){ PApplet.main("Core");}
     //  Settings settings;
-    CarPlayer car = new CarPlayer(new PVector(250,200),new PVector(0,-1));
+    PImage playerCar;
+    CarPlayer car ;
     MainMenu menu;
 
     @Override
@@ -18,6 +20,8 @@ public class Core extends PApplet {
 
     @Override
     public void setup() {
+        playerCar = loadImage("dårligblå.png");
+        car = new CarPlayer(new PVector(250,200),new PVector(0,-1), playerCar);
 
         //  settings = new Settings(this);
         car.p = this;

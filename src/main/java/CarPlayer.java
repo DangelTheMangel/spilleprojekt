@@ -1,13 +1,16 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 import processing.core.PVector;
 
 public class CarPlayer  extends Car {
     PApplet p;
 
-    CarPlayer(PVector posit, PVector speed) {
-        super(posit, speed);
+
+    CarPlayer(PVector posit, PVector speed, PImage car) {
+        super(posit, speed, car);
     }
     boolean collison = false;
+
 
     @Override
     void Movement() {
@@ -30,11 +33,16 @@ public class CarPlayer  extends Car {
         p.pushMatrix();
         if (rotating == true) {
             p.rectMode(p.CENTER);
+            p.imageMode(p.CENTER);
             p.translate(posit.x, posit.y);
             p.rotate(speed.heading());
         }
-        p.rect(0, 0, 50, 20);
+
+        p.rect(0, 0, 32, 16);
+        p.image(car, 0,0);
         p.popMatrix();
+
+        p.rectMode(p.LEFT);
     }
 
     void move() {

@@ -1,5 +1,6 @@
 import processing.core.PApplet;
 
+import processing.core.PImage;
 import processing.core.PVector;
 
 
@@ -18,7 +19,7 @@ public class Car {
 
     float sMulti; //Speed Multiplier (Det her skal bruges med speed powerups og sådan...
 
-
+    PImage car;
 
     //meta
 
@@ -26,12 +27,12 @@ public class Car {
 
 
 
-    Car(PVector posit, PVector speed) {
+    Car(PVector posit, PVector speed, PImage car) {
 
         this.posit = posit;
 
         this.speed = speed;
-
+        this.car = car;
         sMulti = 1;
 
 
