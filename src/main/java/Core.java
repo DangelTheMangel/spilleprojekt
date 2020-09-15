@@ -8,6 +8,7 @@ public class Core extends PApplet {
     public static void main(String[] args){ PApplet.main("Core");}
     //  Settings settings;
     PImage playerCar;
+    PImage levelPic;
     CarPlayer car ;
     MainMenu menu;
 
@@ -28,6 +29,7 @@ public class Core extends PApplet {
         car.p = this;
         menu = new MainMenu(this, 1);
         arenaRadius =width;
+        levelPic = loadImage("Moon.png");
     }
 
 
@@ -46,9 +48,10 @@ public class Core extends PApplet {
 
             fill(250,0,0);
             ellipse(width/2,height/2,arenaRadius,arenaRadius);
+            image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
             car.Movement();
             car.drawCar();
-            rect(100,50,50,50);
+            //rect(100,50,50,50);
 
 
             if(car.rotating){
