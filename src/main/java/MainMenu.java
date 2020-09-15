@@ -1,5 +1,6 @@
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class MainMenu {
     PApplet p;
@@ -11,9 +12,8 @@ public class MainMenu {
 
 
 
-    public MainMenu(PApplet p, int i) {
+    public MainMenu(PApplet p, int i ) {
         this.p = p;
-
         btnPlay = new ToggleKnap(p,p.width/4,p.height/6,p.width/2, p.height/12,"PLay");
         btnInfo = new AlmindeligKnap(p,p.width/4,p.height/12 + p.height/6 + 10   ,p.width/2, p.height/12,"How to play");
         btnSetting = new AlmindeligKnap(p,p.width/4,2*p.height/12 + p.height/6 + 20,p.width/2, p.height/12,"Settings");
@@ -23,15 +23,16 @@ public class MainMenu {
 
 
 
-    public void DrawMenu(){
+    public void DrawMenu(PImage baground){
 
 
         p.clear();
-        p.background(200);
+        p.imageMode(p.CENTER);
+        p.image(baground, p.width/2,p.height/2,p.width ,p.height );
 
         //p.textAlign(p.CENTER, p.BOTTOM);
         p.textSize(35);
-        p.text("Crazy taxi driver!!!!!!", p.width/4 ,p.height/12 );
+        p.text("Crazy taxi driver!!!!!!", p.width/4 ,p.height/12);
         p.textSize(25);
         btnPlay.tegnKnap();
         btnInfo.tegnKnap();

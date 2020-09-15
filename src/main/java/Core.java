@@ -9,18 +9,23 @@ public class Core extends PApplet {
     //  Settings settings;
     PImage playerCar;
     PImage levelPic;
+    PImage bagground;
     CarPlayer car ;
     MainMenu menu;
 
     @Override
-    public void settings() { size(640, 480); }
+    public void settings() {
+        size(640, 480);
+
+    }
+
 
     ArrayList<CarCPU> CarCPUs = new ArrayList<CarCPU>();
 
     public float arenaRadius =500;
 
     @Override
-    public void setup() {
+    public void setup() {frameRate(60);
         print("w "+ width + "h " + height);
         playerCar = loadImage("dårligblå.png");
         car = new CarPlayer(new PVector(250,200),new PVector(0,-1), playerCar);
@@ -30,12 +35,13 @@ public class Core extends PApplet {
         menu = new MainMenu(this, 1);
         arenaRadius =width;
         levelPic = loadImage("Moon.png");
+        bagground = loadImage("Stars.png");
     }
 
 
     @Override
     public void draw() {
-        menu.DrawMenu();
+        menu.DrawMenu(bagground);
         car.Controls();
 
 
@@ -44,6 +50,7 @@ public class Core extends PApplet {
 
             clear();
             background(200);
+            image(bagground,width/2,height/2, width, height );
             //    settings.DrawSettings();
 
             fill(250,0,0);
