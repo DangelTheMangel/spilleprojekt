@@ -91,7 +91,7 @@ public class Car {
     }
 
 
-
+//boomer
     void Controls() { //Noget går galt her når man trykker på begge knapper på samme tid,
                       // og vi skal have noget der tjekker om det sker og gør noget ved det.
         if (p.keyPressed) {
