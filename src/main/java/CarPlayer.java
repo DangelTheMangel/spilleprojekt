@@ -64,7 +64,13 @@ public class CarPlayer  extends Car {
         if (p.keyPressed && p.key == 'd') {
             D = true;
         }
-        if (p.keyPressed && p.key == 'a') {
+        if (p.keyPressed && p.key == 'D') {
+            D = true;
+        }
+        if (p.keyPressed && p.key == 'a' ) {
+            A = true;
+        }
+        if (p.keyPressed && p.key == 'A' ) {
             A = true;
         }
         if (A) {
