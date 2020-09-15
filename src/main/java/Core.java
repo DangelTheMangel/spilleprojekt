@@ -51,11 +51,9 @@ public class Core extends PApplet {
             }
 
             if(car.collison){
-                car.rotating = false;
-                menu.btnPlay.registrerRelease();
-                car.collison = false;
-                exit();
+                print("boomer");
             }
+
 
         }
 
