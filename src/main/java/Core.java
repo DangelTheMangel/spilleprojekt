@@ -1,5 +1,4 @@
 import processing.core.PApplet;
-import processing.core.PSurface;
 import processing.core.PVector;
 
 import java.util.ArrayList;
@@ -64,7 +63,7 @@ public class Core extends PApplet {
 
     }
     public void keyPressed(){
-        car.pressing();
+        car.Controls();
     }
 
 //    @Override

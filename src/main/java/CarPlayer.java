@@ -49,7 +49,7 @@ public class CarPlayer  extends Car {
 
     }
 
-    void pressing() {
+    void Controls() {
         boolean D = false;
         boolean A = false;
 
