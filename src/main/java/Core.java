@@ -11,6 +11,7 @@ public class Core extends PApplet {
     PImage levelPic;
     PImage bagground;
     AlmindeligKnap BackToMenu;
+    PImage info;
 
     MainMenu menu;
 
@@ -31,6 +32,7 @@ public class Core extends PApplet {
         print("w "+ width + "h " + height);
         playerCar = requestImage("dårligblå.png");
         EnemyCar = requestImage("grå.png");
+        info = requestImage("info_fall_cars.png");
         BackToMenu = new AlmindeligKnap(this, width/2, height - height/12, width/2, height/12,"Back");
 
 
@@ -53,7 +55,7 @@ public class Core extends PApplet {
         Monkeys.get(0).Controls();
 
         if(!menu.btnPlay.erKlikket()) {
-            menu.DrawMenu(bagground);
+            menu.DrawMenu(bagground,info);
         }else{
             clear();
 
