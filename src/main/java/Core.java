@@ -36,8 +36,8 @@ public class Core extends PApplet {
         //  settings = new Settings(this);
         car.p = this;
         menu = new MainMenu(this, 1);
-        arenaRadius =width;
-        levelPic = requestImage("Moon.png");
+        arenaRadius =height;
+        levelPic = requestImage("MoonBIG.png");
         bagground = requestImage("Stars.png");
     }
 

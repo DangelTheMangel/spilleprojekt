@@ -28,15 +28,11 @@ public class Car {
 
 
     Car(PVector posit, PVector speed, PImage car) {
-
         this.posit = posit;
 
         this.speed = speed;
         this.car = car;
         sMulti = 1;
-
-
-
     }
 
 
@@ -50,16 +46,10 @@ public class Car {
         posit.y += speed.y * sMulti;
 
 
-
         //Lav noget med at den skal samle powerups. Det her bliver nok rodet.
-
         //Jeg ville nok lave en række if-statements Yanderedev agtigt.
-
         //Det ville være bedre at lave funktion som en datatype og lave en funkiton der tog en funktion som argument.
-
         //Caper
-
-
 
         //Lav noget med at den skal kunne falde af platformen.
 
@@ -75,7 +65,7 @@ public class Car {
 
         p.pushMatrix();
 
-        if(rotating == true) {
+        if(rotating) {
 
             p.rectMode(p.CENTER);
 
@@ -98,10 +88,10 @@ public class Car {
         if (p.keyPressed) {
                 boolean D = false;
                 boolean A = false;
-                if(p.keyPressed && p.key == 'd'){
+                if(p.keyPressed & p.key == 'd'){
                     D=true;
                 }
-                if(p.keyPressed && p.key == 'a'){
+                if(p.keyPressed & p.key == 'a'){
                     A=true;
                 }
                 if(A){
