@@ -13,7 +13,9 @@ public class Car {
     //movement
 
     boolean rotating = false;
-
+    float carSize = 20;
+    float minDist;
+    float speedLoss = (float) 0.05;
     PVector posit = new PVector(100, 200); //Position
 
     PVector speed = new PVector(0, 1); //Speed
@@ -61,7 +63,39 @@ public class Car {
 
     }
 
-    void collision(float rad, ArrayList<Car> monkeys){}
+    void collision( ArrayList<Car> monkeys){
+        for (int i = 0; i < monkeys.size(); i++) {
+            if (this.posit.x != monkeys.get(i).posit.x || this.posit.y != monkeys.get(i).posit.y) {
+
+                    float dx = monkeys.get(i).posit.x - this.posit.x;
+                    float dy = monkeys.get(i).posit.y - this.posit.y;
+
+                    float distance = p.dist(this.posit.x, this.posit.y, monkeys.get(i).posit.x, monkeys.get(i).posit.y);  //nuværende distance mellem to bolde
+
+                    minDist = this.carSize + 2;
+
+                    if (distance <= minDist) {  //basically, "hvis boldene kommer inden for hinandens radius
+                        float angle = p.atan2(dy, dx);  //find vinkel mellem bolde
+
+                        float targetX = this.posit.x + p.cos(angle) * minDist;  //koordinater splittes fra nu af op i x- og y-komposanter, fordi x bruger cos() og y bruger sin()
+                        float targetY = this.posit.y + p.sin(angle) * minDist;  //
+
+                        float newX = (targetX - monkeys.get(i).posit.x) * speedLoss;  //beregner hvor meget fart en bold vil miste/modtage
+                        float newY = (targetY - monkeys.get(i).posit.y) * speedLoss;  //
+
+                        speed.x -= newX;      //
+                        speed.y -= newY;      //finder ny hastighed for begge bolde, der støder sammen
+                        monkeys.get(i).speed.x += newX; //
+                        monkeys.get(i).speed.y += newY; //
+                    }
+                }
+            }
+        }
+
+
+
+
+
 
     void OverEdge(float rad){
         PVector lengthCar = new PVector(posit.x - p.width / 2, posit.y - p.height / 2);

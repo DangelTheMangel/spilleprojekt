@@ -65,6 +65,7 @@ public class Core extends PApplet {
             for(Car Bruh : Monkeys){
                 Bruh.Movement();
                 Bruh.drawCar();
+                Bruh.collision(Monkeys);
             }
 
             if(Monkeys.get(0).rotating){
