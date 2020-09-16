@@ -40,8 +40,7 @@ public class Core extends PApplet {
         bagground = requestImage("Stars.png");
 
         for(int I=0; I<10; I++){
-            Monkeys.add(new CarCPU(this, new PVector(random(100,600),random(100,400))
-                    ,new PVector(0,-1), EnemyCar));
+            Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
         }
     }
 
