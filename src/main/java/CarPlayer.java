@@ -6,8 +6,8 @@ public class CarPlayer  extends Car {
     PApplet p;
 
 
-    CarPlayer(PVector posit, PVector speed, PImage car) {
-        super(posit, speed, car);
+    CarPlayer(PApplet p,PVector posit, PVector speed, PImage car) {
+        super(p,posit, speed, car);
     }
     boolean collison = false;
 

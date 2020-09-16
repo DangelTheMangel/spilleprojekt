@@ -30,10 +30,9 @@ public class Core extends PApplet {
         print("w "+ width + "h " + height);
         playerCar = requestImage("dårligblå.png");
         EnemyCar = requestImage("grå.png");
-        car = new CarPlayer(new PVector(250,200),new PVector(0,-1), playerCar);
-        //enemy = new CarCPU(new PVector(250,200),new PVector(0,-1), EnemyCar);
+        car = new CarPlayer( this, new PVector(250,200),new PVector(0,-1), playerCar);
+        enemy = new CarCPU(this, new PVector(250,200),new PVector(0,-1), EnemyCar);
 
-        //  settings = new Settings(this);
         car.p = this;
         menu = new MainMenu(this, 1);
         arenaRadius =height;
@@ -60,7 +59,8 @@ public class Core extends PApplet {
 
             car.Movement();
             car.drawCar();
-
+            enemy.Movement();
+            enemy.drawCar();
             if(car.rotating){
                 arenaRadius -= 0.2;
                 car.collsion(arenaRadius);

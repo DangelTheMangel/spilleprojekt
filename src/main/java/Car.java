@@ -27,7 +27,8 @@ public class Car {
 
 
 
-    Car(PVector posit, PVector speed, PImage car) {
+    Car(PApplet p,PVector posit, PVector speed, PImage car) {
+        this.p =p;
         this.posit = posit;
 
         this.speed = speed;
@@ -62,23 +63,15 @@ public class Car {
     void drawCar() {
 
         p.fill(0,0,250);
-
         p.pushMatrix();
 
         if(rotating) {
-
             p.rectMode(p.CENTER);
-
             p.translate(posit.x, posit.y);
-
             p.rotate(speed.heading());
-
         }
-
         p.rect(0, 0, 50, 20);
-
         p.popMatrix();
-
     }
 
 
