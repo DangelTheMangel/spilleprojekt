@@ -4,13 +4,10 @@ import processing.core.PVector;
 
 public class CarCPU extends Car{
     PApplet p;
-    float turnMin, turnMax, turn;
 
     CarCPU(PApplet p, PVector posit, PVector speed, PImage car) {
         super(p,posit, speed, car);
         this.p =p;
-        turnMax = p.random(0.5f,0f);
-        turnMin = p.random(0f,-0.5f);
     }
 
 
@@ -23,7 +20,6 @@ public class CarCPU extends Car{
 
 
     void Movement() {
-        turn = p.random(turnMax,turnMin);
         p.println("heheh bevægelse");
     }
 }
