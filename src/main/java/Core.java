@@ -10,6 +10,7 @@ public class Core extends PApplet {
     PImage playerCar ,EnemyCar;
     PImage levelPic;
     PImage bagground;
+    AlmindeligKnap BackToMenu;
 
     MainMenu menu;
 
@@ -26,9 +27,11 @@ public class Core extends PApplet {
 
     @Override
     public void setup() {frameRate(60);
+        Monkeys.clear();
         print("w "+ width + "h " + height);
         playerCar = requestImage("dårligblå.png");
         EnemyCar = requestImage("grå.png");
+        BackToMenu = new AlmindeligKnap(this, width/2, height - height/12, width/2, height/12,"Back");
 
 
 
@@ -38,7 +41,7 @@ public class Core extends PApplet {
         bagground = requestImage("Stars.png");
 
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-4), playerCar));
-        for(int I=0; I<100; I++){
+        for(int I=0; I<1; I++){
             Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
         }
     }
@@ -53,43 +56,57 @@ public class Core extends PApplet {
             menu.DrawMenu(bagground);
         }else{
             clear();
-            background(200);
+
             image(bagground,width/2,height/2, width, height );
 
-            fill(0,0,0, 100);
-            ellipse(width/2,height/2,arenaRadius,arenaRadius);
-            image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
+            if(Monkeys.size() == 1 && Monkeys.get(0).OVerTHEEdge == false){
+                if(BackToMenu.erKlikket()){
+                    setup();
+                    BackToMenu.registrerRelease();
+                }
+                Monkeys.get(0).rotating = false;
+                text("you Won!", 10,10);
+                BackToMenu.tegnKnap();
 
-            for(int i = 1; i<Monkeys.size()-1;++i){
-                if(Monkeys.get(i).OVerTHEEdge){
-                    Monkeys.remove(i);
+            }{
+                fill(0,0,0, 100);
+                ellipse(width/2,height/2,arenaRadius,arenaRadius);
+                image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
+
+                for(int i = 1; i<Monkeys.size();++i){
+                    if(Monkeys.get(i).OVerTHEEdge){
+                        Monkeys.remove(i);
+                    }
+                }
+
+
+
+                if(Monkeys.get(0).rotating){
+                    arenaRadius -= 0.2;
+                    for(Car Bruh : Monkeys){
+                        Bruh.Movement();
+                        Bruh.drawCar();
+                        Bruh.collision(Monkeys);
+                        Bruh.OverEdge(arenaRadius);
+                    }
+                }else {
+                    arenaRadius = width;
+                }
+                if(Monkeys.get(0).OVerTHEEdge){
+
+                    setup();
+                    Monkeys.get(0).OVerTHEEdge = false;
+
                 }
             }
 
 
-
-            if(Monkeys.get(0).rotating){
-                arenaRadius -= 0.2;
-                for(Car Bruh : Monkeys){
-                    Bruh.Movement();
-                    Bruh.drawCar();
-                    Bruh.collision(Monkeys);
-                    Bruh.OverEdge(arenaRadius);
-                }
-            }else {
-                arenaRadius = width;
-            }
-            if(Monkeys.get(0).OVerTHEEdge){
-                Monkeys.clear();
-                setup();
-                Monkeys.get(0).OVerTHEEdge = false;
-
-            }
         }
     }
 
     //    @Override
     public void mouseClicked() {
         menu.MouseClickedMenu();
+        BackToMenu.registrerKlik(mouseX,mouseY);
     }
 }
