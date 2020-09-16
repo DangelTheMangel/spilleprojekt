@@ -60,7 +60,7 @@ public class Car {
 
     }
 
-    void collsion(float rad){}
+    void collision(float rad){}
 
 
     void drawCar() {

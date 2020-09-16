@@ -10,10 +10,10 @@ public class Core extends PApplet {
     PImage playerCar ,EnemyCar;
     PImage levelPic;
     PImage bagground;
-    CarPlayer car ;
+
     MainMenu menu;
 
-    ArrayList<CarCPU> Monkeys = new ArrayList<CarCPU>();
+    ArrayList<Car> Monkeys = new ArrayList<Car>();
 
     @Override
     public void settings() {
@@ -22,8 +22,6 @@ public class Core extends PApplet {
     }
 
 
-    ArrayList<CarCPU> CarCPUs = new ArrayList<CarCPU>();
-
     public float arenaRadius =500;
 
     @Override
@@ -31,14 +29,15 @@ public class Core extends PApplet {
         print("w "+ width + "h " + height);
         playerCar = requestImage("dårligblå.png");
         EnemyCar = requestImage("grå.png");
-        car = new CarPlayer( this, new PVector(250,200),new PVector(0,-4), playerCar);
 
-        car.p = this;
+
+
         menu = new MainMenu(this, 1);
         arenaRadius =height;
         levelPic = requestImage("MoonBIG.png");
         bagground = requestImage("Stars.png");
 
+        Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-4), playerCar));
         for(int I=0; I<10; I++){
             Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
         }
@@ -48,7 +47,7 @@ public class Core extends PApplet {
     @Override
     public void draw() {
 
-        car.Controls();
+        Monkeys.get(0).Controls();
 
         if(!menu.btnPlay.erKlikket()) {
             menu.DrawMenu(bagground);
@@ -61,21 +60,20 @@ public class Core extends PApplet {
             ellipse(width/2,height/2,arenaRadius,arenaRadius);
             image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
 
-            car.Movement();
-            car.drawCar();
 
-            for(CarCPU Bruh : Monkeys){
+
+            for(Car Bruh : Monkeys){
                 Bruh.Movement();
                 Bruh.drawCar();
             }
 
-            if(car.rotating){
+            if(Monkeys.get(0).rotating){
                 arenaRadius -= 0.2;
-                car.collsion(arenaRadius);
+                Monkeys.get(0).collision(arenaRadius);
             }else {
                 arenaRadius = width;
             }
-            if(car.collison){
+            if(Monkeys.get(0).collison){
                 setup();
             }
         }

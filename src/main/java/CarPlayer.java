@@ -82,7 +82,7 @@ public class CarPlayer  extends Car {
     }
 
 
-    void collsion(float rad) {
+    void collision(float rad) {
         PVector lengthCar = new PVector(posit.x - p.width / 2, posit.y - p.height / 2);
         lengthCar.mag();
         p.line(p.width / 2, p.height / 2, p.width / 2 + lengthCar.x, p.height / 2 + lengthCar.y);

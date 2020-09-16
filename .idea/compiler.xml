@@ -10,6 +10,7 @@
         <module name="spilleprojekt" />
         <module name="spilleprojekt2" />
         <module name="spille projekt" />
+        <module name="spilleprojekt5" />
         <module name="spilleprojekt4" />
       </profile>
     </annotationProcessing>
