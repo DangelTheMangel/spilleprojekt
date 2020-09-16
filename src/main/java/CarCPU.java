@@ -31,15 +31,7 @@ public class CarCPU extends Car{
 
     }
 
-    void collision(float rad) {
-        PVector lengthCar = new PVector(posit.x - p.width / 2, posit.y - p.height / 2);
-        lengthCar.mag();
-        p.line(p.width / 2, p.height / 2, p.width / 2 + lengthCar.x, p.height / 2 + lengthCar.y);
 
-        if (rad / 2 < lengthCar.mag()) {
-            collison = true;
-        }
-    }
 
     void Movement() {
         speed.rotate(rotation);

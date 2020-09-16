@@ -69,11 +69,11 @@ public class Core extends PApplet {
 
             if(Monkeys.get(0).rotating){
                 arenaRadius -= 0.2;
-                Monkeys.get(0).collision(arenaRadius);
+                Monkeys.get(0).OverEdge(arenaRadius);
             }else {
                 arenaRadius = width;
             }
-            if(Monkeys.get(0).collison){
+            if(Monkeys.get(0).OVerTHEEdge){
                 setup();
             }
         }
