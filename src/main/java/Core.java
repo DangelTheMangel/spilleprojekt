@@ -38,7 +38,7 @@ public class Core extends PApplet {
         bagground = requestImage("Stars.png");
 
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-4), playerCar));
-        for(int I=0; I<10; I++){
+        for(int I=0; I<100; I++){
             Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
         }
     }
@@ -60,28 +60,36 @@ public class Core extends PApplet {
             ellipse(width/2,height/2,arenaRadius,arenaRadius);
             image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
 
-
-
-            for(Car Bruh : Monkeys){
-                Bruh.Movement();
-                Bruh.drawCar();
-                Bruh.collision(Monkeys);
+            for(int i = 1; i<Monkeys.size()-1;++i){
+                if(Monkeys.get(i).OVerTHEEdge){
+                    Monkeys.remove(i);
+                }
             }
+
+
 
             if(Monkeys.get(0).rotating){
                 arenaRadius -= 0.2;
-                Monkeys.get(0).OverEdge(arenaRadius);
+                for(Car Bruh : Monkeys){
+                    Bruh.Movement();
+                    Bruh.drawCar();
+                    Bruh.collision(Monkeys);
+                    Bruh.OverEdge(arenaRadius);
+                }
             }else {
                 arenaRadius = width;
             }
             if(Monkeys.get(0).OVerTHEEdge){
+                Monkeys.clear();
                 setup();
+                Monkeys.get(0).OVerTHEEdge = false;
+
             }
         }
     }
 
-//    @Override
-     public void mouseClicked() {
-         menu.MouseClickedMenu();
-      }
+    //    @Override
+    public void mouseClicked() {
+        menu.MouseClickedMenu();
+    }
 }

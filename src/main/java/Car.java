@@ -67,30 +67,30 @@ public class Car {
         for (int i = 0; i < monkeys.size(); i++) {
             if (this.posit.x != monkeys.get(i).posit.x || this.posit.y != monkeys.get(i).posit.y) {
 
-                    float dx = monkeys.get(i).posit.x - this.posit.x;
-                    float dy = monkeys.get(i).posit.y - this.posit.y;
+                float dx = monkeys.get(i).posit.x - this.posit.x;
+                float dy = monkeys.get(i).posit.y - this.posit.y;
 
-                    float distance = p.dist(this.posit.x, this.posit.y, monkeys.get(i).posit.x, monkeys.get(i).posit.y);  //nuværende distance mellem to bolde
+                float distance = p.dist(this.posit.x, this.posit.y, monkeys.get(i).posit.x, monkeys.get(i).posit.y);  //nuværende distance mellem to bolde
 
-                    minDist = this.carSize + 2;
+                minDist = this.carSize + 2;
 
-                    if (distance <= minDist) {  //basically, "hvis boldene kommer inden for hinandens radius
-                        float angle = p.atan2(dy, dx);  //find vinkel mellem bolde
+                if (distance <= minDist) {  //basically, "hvis boldene kommer inden for hinandens radius
+                    float angle = p.atan2(dy, dx);  //find vinkel mellem bolde
 
-                        float targetX = this.posit.x + p.cos(angle) * minDist;  //koordinater splittes fra nu af op i x- og y-komposanter, fordi x bruger cos() og y bruger sin()
-                        float targetY = this.posit.y + p.sin(angle) * minDist;  //
+                    float targetX = this.posit.x + p.cos(angle) * minDist;  //koordinater splittes fra nu af op i x- og y-komposanter, fordi x bruger cos() og y bruger sin()
+                    float targetY = this.posit.y + p.sin(angle) * minDist;  //
 
-                        float newX = (targetX - monkeys.get(i).posit.x) * speedLoss;  //beregner hvor meget fart en bold vil miste/modtage
-                        float newY = (targetY - monkeys.get(i).posit.y) * speedLoss;  //
+                    float newX = (targetX - monkeys.get(i).posit.x) * speedLoss;  //beregner hvor meget fart en bold vil miste/modtage
+                    float newY = (targetY - monkeys.get(i).posit.y) * speedLoss;  //
 
-                        speed.x -= newX;      //
-                        speed.y -= newY;      //finder ny hastighed for begge bolde, der støder sammen
-                        monkeys.get(i).speed.x += newX; //
-                        monkeys.get(i).speed.y += newY; //
-                    }
+                    speed.x -= newX;      //
+                    speed.y -= newY;      //finder ny hastighed for begge bolde, der støder sammen
+                    monkeys.get(i).speed.x += newX; //
+                    monkeys.get(i).speed.y += newY; //
                 }
             }
         }
+    }
 
 
 
@@ -123,26 +123,26 @@ public class Car {
     }
 
 
-//boomer
+    //boomer
     void Controls() { //Noget går galt her når man trykker på begge knapper på samme tid,
-                      // og vi skal have noget der tjekker om det sker og gør noget ved det.
+        // og vi skal have noget der tjekker om det sker og gør noget ved det.
         if (p.keyPressed) {
-                boolean D = false;
-                boolean A = false;
-                if(p.keyPressed & p.key == 'd'){
-                    D=true;
-                }
-                if(p.keyPressed & p.key == 'a'){
-                    A=true;
-                }
-                if(A){
-                    speed.rotate(-0.1f);
-                    rotating = true;
-                }
-                else if(D){
-                speed.rotate(0.1f);}
-                else{
-                speed.rotate(0);}
+            boolean D = false;
+            boolean A = false;
+            if(p.keyPressed & p.key == 'd'){
+                D=true;
             }
+            if(p.keyPressed & p.key == 'a'){
+                A=true;
+            }
+            if(A){
+                speed.rotate(-0.1f);
+                rotating = true;
+            }
+            else if(D){
+                speed.rotate(0.1f);}
+            else{
+                speed.rotate(0);}
         }
     }
+}
