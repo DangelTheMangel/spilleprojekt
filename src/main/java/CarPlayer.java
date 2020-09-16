@@ -38,7 +38,7 @@ public class CarPlayer  extends Car {
             p.rotate(speed.heading());
         }
 
-        p.rect(0, 0, 32, 16);
+        //p.rect(0, 0, 32, 16);
         p.image(car, 0,0);
         p.popMatrix();
 

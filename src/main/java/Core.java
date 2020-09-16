@@ -28,8 +28,8 @@ public class Core extends PApplet {
     @Override
     public void setup() {frameRate(60);
         print("w "+ width + "h " + height);
-        playerCar = loadImage("dårligblå.png");
-        EnemyCar = loadImage("grå.png");
+        playerCar = requestImage("dårligblå.png");
+        EnemyCar = requestImage("grå.png");
         car = new CarPlayer(new PVector(250,200),new PVector(0,-1), playerCar);
         //enemy = new CarCPU(new PVector(250,200),new PVector(0,-1), EnemyCar);
 
@@ -37,8 +37,8 @@ public class Core extends PApplet {
         car.p = this;
         menu = new MainMenu(this, 1);
         arenaRadius =width;
-        levelPic = loadImage("Moon.png");
-        bagground = loadImage("Stars.png");
+        levelPic = requestImage("Moon.png");
+        bagground = requestImage("Stars.png");
     }
 
 
@@ -49,14 +49,12 @@ public class Core extends PApplet {
 
         if(!menu.btnPlay.erKlikket()) {
             menu.DrawMenu(bagground);
-
-            print(menu.btnPlay.erKlikket());
         }else{
             clear();
             background(200);
             image(bagground,width/2,height/2, width, height );
 
-            fill(250,0,0);
+            fill(0,0,0, 100);
             ellipse(width/2,height/2,arenaRadius,arenaRadius);
             image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
 
