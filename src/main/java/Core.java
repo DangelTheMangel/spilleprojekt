@@ -30,7 +30,7 @@ public class Core extends PApplet {
         print("w "+ width + "h " + height);
         playerCar = requestImage("dårligblå.png");
         EnemyCar = requestImage("grå.png");
-        car = new CarPlayer( this, new PVector(250,200),new PVector(0,-1), playerCar);
+        car = new CarPlayer( this, new PVector(250,200),new PVector(0,-4), playerCar);
         enemy = new CarCPU(this, new PVector(250,200),new PVector(0,-1), EnemyCar);
 
         car.p = this;

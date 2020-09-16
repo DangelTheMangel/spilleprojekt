@@ -24,7 +24,14 @@ public class CarCPU extends Car{
 
 
     void drawCar() {
-        p.image(car, posit.x,posit.y);
+
+        p.pushMatrix();
+            p.imageMode(p.CENTER);
+            p.translate(posit.x, posit.y);
+            p.rotate(speed.heading());
+        p.image(car, 0,0);
+        p.popMatrix();
+
     }
 
     void Movement() {
