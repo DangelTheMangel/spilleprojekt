@@ -7,10 +7,11 @@ import java.util.ArrayList;
 public class Core extends PApplet {
     public static void main(String[] args){ PApplet.main("Core");}
     //  Settings settings;
-    PImage playerCar;
+    PImage playerCar ,EnemyCar;
     PImage levelPic;
     PImage bagground;
     CarPlayer car ;
+    CarCPU enemy;
     MainMenu menu;
 
     @Override
@@ -28,7 +29,9 @@ public class Core extends PApplet {
     public void setup() {frameRate(60);
         print("w "+ width + "h " + height);
         playerCar = loadImage("dårligblå.png");
+        EnemyCar = loadImage("grå.png");
         car = new CarPlayer(new PVector(250,200),new PVector(0,-1), playerCar);
+        //enemy = new CarCPU(new PVector(250,200),new PVector(0,-1), EnemyCar);
 
         //  settings = new Settings(this);
         car.p = this;
@@ -41,25 +44,24 @@ public class Core extends PApplet {
 
     @Override
     public void draw() {
-        menu.DrawMenu(bagground);
+
         car.Controls();
 
+        if(!menu.btnPlay.erKlikket()) {
+            menu.DrawMenu(bagground);
 
-        if(menu.btnPlay.erKlikket()){
-
-
+            print(menu.btnPlay.erKlikket());
+        }else{
             clear();
             background(200);
             image(bagground,width/2,height/2, width, height );
-            //    settings.DrawSettings();
 
             fill(250,0,0);
             ellipse(width/2,height/2,arenaRadius,arenaRadius);
             image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
+
             car.Movement();
             car.drawCar();
-            //rect(100,50,50,50);
-
 
             if(car.rotating){
                 arenaRadius -= 0.2;
@@ -67,18 +69,10 @@ public class Core extends PApplet {
             }else {
                 arenaRadius = width;
             }
-
             if(car.collison){
-
                 setup();
-
             }
-
-
         }
-
-
-
     }
 
 //    @Override

@@ -2,42 +2,39 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PVector;
 
-import java.util.Random;
-
-public class CarCPU extends Car {
+public class CarCPU  extends Car {
     PApplet p;
-    float rotationMax, rotationMin, rotation;
-    PImage car;
 
-    CarCPU(PVector P, PVector S, PImage car) {
-        super(P, S , car );
-        rotationMin = p.random(-1f,0f);
-        rotationMax = p.random(0f,1f);
+
+    CarCPU(PVector posit, PVector speed, PImage car) {
+        super(posit, speed, car);
     }
 
-    @Override
-    void Movement(){
-        //Udregninger
-        rotation = p.random(rotationMin,rotationMax);
-        speed.rotate(rotation);
+    void Movement() {
 
-        //Visuelt
-        p.rect(posit.x, posit.y, 50, 50);
+        posit.x += speed.x * sMulti;
+        posit.y += speed.y * sMulti;
 
-        }
+        //Lav noget med at den skal samle powerups. Det her bliver nok rodet.
+        //Jeg ville nok lave en række if-statements Yanderedev agtigt.
+        //Det ville være bedre at lave funktion som en datatype og lave en funkiton der tog en funktion som argument.
+        //Caper
 
-    @Override
+        //Lav noget med at den skal kunne falde af platformen.
+
+    }
+
     void drawCar() {
-        p.fill(0,0,250);
-        p.pushMatrix();
-        if(rotating == true) {
-            p.rectMode(p.CENTER);
-            p.translate(posit.x, posit.y);
-            p.rotate(speed.heading());
-        }
-        p.rect(0, 0, 50, 20);
-        p.popMatrix();
+
+        p.image(car, 0,0);
+
     }
+
+    void move() {
+
+
+    }
+
 
 
     void collsion(float rad) {
@@ -45,11 +42,8 @@ public class CarCPU extends Car {
         lengthCar.mag();
         p.line(p.width / 2, p.height / 2, p.width / 2 + lengthCar.x, p.height / 2 + lengthCar.y);
 
-        if (rad / 2 < lengthCar.mag()) {
-            p.println("Du Boomer");
-        }
-    }
 
+    }
 }
 
 /*Casper Tænker:
