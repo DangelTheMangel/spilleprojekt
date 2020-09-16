@@ -11,8 +11,9 @@ public class Core extends PApplet {
     PImage levelPic;
     PImage bagground;
     CarPlayer car ;
-    CarCPU enemy;
     MainMenu menu;
+
+    ArrayList<CarCPU> Monkeys = new ArrayList<CarCPU>();
 
     @Override
     public void settings() {
@@ -31,13 +32,16 @@ public class Core extends PApplet {
         playerCar = requestImage("dårligblå.png");
         EnemyCar = requestImage("grå.png");
         car = new CarPlayer( this, new PVector(250,200),new PVector(0,-4), playerCar);
-        enemy = new CarCPU(this, new PVector(250,200),new PVector(0,-1), EnemyCar);
 
         car.p = this;
         menu = new MainMenu(this, 1);
         arenaRadius =height;
         levelPic = requestImage("MoonBIG.png");
         bagground = requestImage("Stars.png");
+
+        for(int I=0; I<10; I++){
+            Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
+        }
     }
 
 
@@ -59,8 +63,12 @@ public class Core extends PApplet {
 
             car.Movement();
             car.drawCar();
-            enemy.Movement();
-            enemy.drawCar();
+
+            for(CarCPU Bruh : Monkeys){
+                Bruh.Movement();
+                Bruh.drawCar();
+            }
+
             if(car.rotating){
                 arenaRadius -= 0.2;
                 car.collsion(arenaRadius);
