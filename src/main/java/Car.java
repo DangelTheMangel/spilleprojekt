@@ -11,7 +11,8 @@ public class Car {
     PApplet p;
 
     //movement
-
+    boolean D = false;
+    boolean A = false;
     boolean rotating = false;
     float carSize = 20;
     float minDist;
@@ -127,8 +128,7 @@ public class Car {
     void Controls() { //Noget går galt her når man trykker på begge knapper på samme tid,
                       // og vi skal have noget der tjekker om det sker og gør noget ved det.
         if (p.keyPressed) {
-                boolean D = false;
-                boolean A = false;
+
                 if(p.keyPressed & p.key == 'd'){
                     D=true;
                 }
@@ -143,6 +143,13 @@ public class Car {
                 speed.rotate(0.1f);}
                 else{
                 speed.rotate(0);}
+
             }
+
         }
+    void keyreleased(){
+        if (p.key == 'd' || p.key =='D') A = false;
+        if (p.key == 'a' || p.key =='A') D = false;
+
+    }
     }

@@ -13,6 +13,7 @@ public class Core extends PApplet {
     AlmindeligKnap BackToMenu;
     PImage info;
 
+
     MainMenu menu;
 
     ArrayList<Car> Monkeys = new ArrayList<Car>();
@@ -42,7 +43,9 @@ public class Core extends PApplet {
         levelPic = requestImage("MoonBIG.png");
         bagground = requestImage("Stars.png");
 
-        Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-4), playerCar));
+        Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-2), playerCar, 'a','A','d','D'));
+        Monkeys.add(new CarPlayer2( this, new PVector(200,200),new PVector(0,-2), playerCar, 'j','J','l','L'));
+
         for(int I=0; I<1; I++){
             Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
         }
@@ -53,6 +56,7 @@ public class Core extends PApplet {
     public void draw() {
 
         Monkeys.get(0).Controls();
+        Monkeys.get(1).Controls();
 
         if(!menu.btnPlay.erKlikket()) {
             menu.DrawMenu(bagground,info);
@@ -90,6 +94,7 @@ public class Core extends PApplet {
                         Bruh.drawCar();
                         Bruh.collision(Monkeys);
                         Bruh.OverEdge(arenaRadius);
+
                     }
                 }else {
                     arenaRadius = width;
@@ -111,4 +116,11 @@ public class Core extends PApplet {
         menu.MouseClickedMenu();
         BackToMenu.registrerKlik(mouseX,mouseY);
     }
+    public void keyReleased(){
+        for(Car Bruh : Monkeys) {
+            println("taber");
+            Bruh.keyreleased();
+        }
+    }
+
 }

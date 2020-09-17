@@ -2,18 +2,17 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PVector;
 
-public class CarPlayer  extends Car {
-    PApplet p;
+public class CarPlayer2 extends Car{
+PApplet p ;
     char leftKey;
     char leftKeyBig;
     char rightKey;
     char rightKeyBig;
-    boolean D = false;
-    boolean A = false;
-    CarPlayer(PApplet p,PVector posit, PVector speed, PImage car, char leftKey, char leftKeyBig,char rightKey,char rightKeyBig) {
-
-        super(p,posit, speed, car);
-        this.p =p;
+    boolean j = false;
+    boolean l = false;
+    CarPlayer2(PApplet p, PVector posit, PVector speed, PImage car,char leftKey, char leftKeyBig,char rightKey,char rightKeyBig) {
+        super(p, posit, speed, car);
+        this.p = p;
         this.leftKey = leftKey;
         this.leftKeyBig = leftKeyBig;
         this.rightKey = rightKey;
@@ -71,17 +70,17 @@ public class CarPlayer  extends Car {
 
 
         if (p.keyPressed && p.key == rightKey || p.keyPressed && p.key == rightKeyBig) {
-            D = true;
+            l = true;
         }
 
-        if (p.keyPressed && p.key == leftKey || p.keyPressed && p.key == leftKeyBig) {
-            A = true;
+      else  if (p.keyPressed && p.key == leftKey || p.keyPressed && p.key == leftKeyBig) {
+            j = true;
         }
 
-        if (A) {
+        if (j) {
             speed.rotate(-0.1f);
             rotating = true;
-        } else if (D) {
+        } else if (l) {
             speed.rotate(0.1f);
         } else {
             speed.rotate(0);
@@ -90,8 +89,8 @@ public class CarPlayer  extends Car {
 
     }
     void keyreleased(){
-        if (p.key == leftKey || p.key ==leftKeyBig) A = false;
-        if (p.key == rightKey || p.key ==rightKeyBig) D = false;
+        if (p.key == leftKey || p.key ==leftKeyBig) j = false;
+        if (p.key == rightKey || p.key ==rightKeyBig) l = false;
 
     }
 
@@ -99,3 +98,5 @@ public class CarPlayer  extends Car {
 
 
 }
+
+
