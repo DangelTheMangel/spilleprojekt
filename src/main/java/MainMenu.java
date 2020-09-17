@@ -101,10 +101,11 @@ public class MainMenu {
 
     public void MouseClickedMenu(){
         //settings.mouseClickedSettings();
-
-        btnPlay.registrerKlik(p.mouseX,p.mouseY);
-        btnQuit.registrerKlik(p.mouseX,p.mouseY);
-        btnSetting.registrerKlik(p.mouseX,p.mouseY);
+        if(menuTrue) {
+            btnPlay.registrerKlik(p.mouseX, p.mouseY);
+            btnQuit.registrerKlik(p.mouseX, p.mouseY);
+            btnSetting.registrerKlik(p.mouseX, p.mouseY);
+        }
         btnInfo.registrerKlik(p.mouseX,p.mouseY);
         exitInfo.registrerKlik(p.mouseX,p.mouseY);
         if(btnSetting.erKlikket()){

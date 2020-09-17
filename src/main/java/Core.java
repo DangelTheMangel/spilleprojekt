@@ -98,6 +98,10 @@ public class Core extends PApplet {
                 }
                 if(Monkeys.get(0).rotating){
                     arenaRadius -= 0.2;
+                    for(PowerUP pickle: powerUps){
+                        pickle.DrawPowerUp();
+                    }
+
                     for(Car Bruh : Monkeys){
                         Bruh.Movement();
                         Bruh.drawCar();
