@@ -56,11 +56,9 @@ public class Core extends PApplet {
 
     @Override
     public void draw() {
-        for(PowerUP pickle: powerUps){
-            pickle.DrawPowerUp();
-        }
+
         Monkeys.get(0).Controls();
-        Monkeys.get(1).Controls();
+
 
         if(!menu.btnPlay.erKlikket()) {
             menu.DrawMenu(bagground,info);
@@ -90,7 +88,14 @@ public class Core extends PApplet {
                 }
 
 
-
+                for(PowerUP pickle: powerUps){
+                    pickle.DrawPowerUp();
+                }
+                if(menu.settings.multiplePlayers()){
+                    Monkeys.get(1).Controls();
+                    Monkeys.get(1).drawCar();
+                    Monkeys.get(1).collision(Monkeys);
+                }
                 if(Monkeys.get(0).rotating){
                     arenaRadius -= 0.2;
                     for(Car Bruh : Monkeys){

@@ -11,6 +11,7 @@ public class MainMenu {
     Settings settings;
     AlmindeligKnap exitInfo;
 
+
     boolean menuTrue = true;
     boolean infoMenu = false;
 
@@ -63,10 +64,12 @@ public class MainMenu {
 
             if(settings.btnonePlayer.erKlikket()){
                 p.println("heghw");
+                settings.players = false;
                 settings.btnonePlayer.registrerRelease();
             }
             if (settings.btntwoPlayers.erKlikket()){
-                p.println("heghw");
+                p.println("players");
+               settings.players = true;
                 settings.btntwoPlayers.registrerRelease();
             }
 
