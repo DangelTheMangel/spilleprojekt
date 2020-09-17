@@ -10,12 +10,13 @@ public class Core extends PApplet {
     PImage playerCar ,EnemyCar;
     PImage levelPic;
     PImage bagground;
+    PImage picklePower;
     AlmindeligKnap BackToMenu;
     PImage info;
 
 
     MainMenu menu;
-
+    ArrayList<PowerUP> powerUps = new ArrayList<PowerUP>();
     ArrayList<Car> Monkeys = new ArrayList<Car>();
 
     @Override
@@ -34,6 +35,7 @@ public class Core extends PApplet {
         playerCar = requestImage("dårligblå.png");
         EnemyCar = requestImage("grå.png");
         info = requestImage("info_fall_cars.png");
+        picklePower = requestImage("jesuspickel.png");
         BackToMenu = new AlmindeligKnap(this, width/2, height - height/12, width/2, height/12,"Back");
 
 
@@ -42,7 +44,7 @@ public class Core extends PApplet {
         arenaRadius =height;
         levelPic = requestImage("MoonBIG.png");
         bagground = requestImage("Stars.png");
-
+        powerUps.add(new PowerUP(this,picklePower,new PVector(width/2,height/2)));
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-2), playerCar, 'a','A','d','D'));
         Monkeys.add(new CarPlayer2( this, new PVector(200,200),new PVector(0,-2), playerCar, 'j','J','l','L'));
 
@@ -54,7 +56,9 @@ public class Core extends PApplet {
 
     @Override
     public void draw() {
-
+        for(PowerUP pickle: powerUps){
+            pickle.DrawPowerUp();
+        }
         Monkeys.get(0).Controls();
         Monkeys.get(1).Controls();
 

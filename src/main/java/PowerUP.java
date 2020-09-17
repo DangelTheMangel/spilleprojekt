@@ -13,7 +13,7 @@ public class PowerUP {
     }
 
     void DrawPowerUp(){
-        p.image(PowerPhoto , Postion.x , Postion.x);
+        p.image(PowerPhoto , Postion.x , Postion.y);
 
     }
 
