@@ -50,10 +50,25 @@ boolean infoMenu = false;
             btnQuit.registrerRelease();
         }
         if(btnSetting.erKlikket()){
+            menuTrue = false;
             settings.DrawSettings();
             if(settings.exitSettingse.erKlikket()){
+                menuTrue = true;
                 settings.exitSettingse.registrerRelease();
                 btnSetting.registrerRelease();
+
+            }
+            if(settings.onePlayer.erKlikket()){
+
+                settings.players = false;
+                settings.onePlayer.registrerRelease();
+
+            }
+            if(settings.twoPlayers.erKlikket()){
+
+                settings.players = true;
+                p.println("players");
+                settings.twoPlayers.registrerRelease();
 
             }
 

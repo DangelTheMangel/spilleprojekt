@@ -9,9 +9,12 @@ public class Settings  {
     int a = 0;
     int x, y;
     boolean updated = false;
+  public boolean players = false;
     AlmindeligKnap btnUpSize;
     AlmindeligKnap btnDownSize;
     AlmindeligKnap exitSettingse;
+    AlmindeligKnap twoPlayers;
+    AlmindeligKnap onePlayer;
     PVector[] resolution = {new PVector(640, 480),new PVector(1080, 768), new PVector(1280, 720),
     new PVector(1920, 1080), new PVector(0, 0)};
 
@@ -20,6 +23,8 @@ public class Settings  {
         btnUpSize = new AlmindeligKnap(p, 0, 0, p.height / 6, p.height / 6, "<");
         btnDownSize = new AlmindeligKnap(p, (p.height / 6) * 4 + (p.height / 6), 0, p.height / 6, p.height / 6, "> ");
         exitSettingse = new AlmindeligKnap(p, p.width/2, p.height - p.height/12, p.width/2, p.height/12,"Back");
+        twoPlayers = new AlmindeligKnap(p, p.width/2, p.height - p.height/2, p.width/2, p.height/12,"Two players");
+        onePlayer = new AlmindeligKnap(p, p.width/2, p.height - p.height/3, p.width/2, p.height/12,"one Player");
     }
 
     public void DrawSettings(){
@@ -38,7 +43,8 @@ public class Settings  {
         btnUpSize.tegnKnap();
         btnDownSize.tegnKnap();
         exitSettingse.tegnKnap();
-
+        onePlayer.tegnKnap();
+        twoPlayers.tegnKnap();
         if(btnDownSize.erKlikket()) {
             a--;
             if (a<0)
@@ -76,8 +82,11 @@ public class Settings  {
 
 
 
-    }
 
+    }
+    boolean multiplePlayers(){
+        return players;
+    }
     public static final javax.swing.JFrame getJFrame(final PSurface surface) {
         return (javax.swing.JFrame) ( (processing.awt.PSurfaceAWT.SmoothCanvas) surface.getNative()).getFrame();
     }
@@ -85,7 +94,8 @@ public class Settings  {
     public void mouseClickedSettings() {
        btnUpSize.registrerRelease();
         btnDownSize.registrerRelease();
-
+        onePlayer.registrerKlik(p.mouseX,p.mouseY);
+        onePlayer.registrerRelease();
 
         btnUpSize.registrerKlik(p.mouseX,p.mouseY);
         btnDownSize.registrerKlik(p.mouseX,p.mouseY);
