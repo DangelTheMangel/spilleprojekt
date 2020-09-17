@@ -48,4 +48,5 @@ public abstract class Knap {
     }
 
     abstract void registrerKlik(float mouseX, float mouseY);
+
 }
