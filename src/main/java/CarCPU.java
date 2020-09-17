@@ -17,8 +17,8 @@ public class CarCPU extends Car{
         super(p,posit, speed, car);
         this.p =p;
 
-        rotationMin = p.random(-0.5f,0f);
-        rotationMax = p.random(0f,0.5f);
+        rotationMin = p.random(-0.5f,-0.1f);
+        rotationMax = p.random(0.1f,0.5f);
     }
 
     void drawCar() {
