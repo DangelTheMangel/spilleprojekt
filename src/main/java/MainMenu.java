@@ -63,11 +63,13 @@ public class MainMenu {
             }
 
             if(settings.btnonePlayer.erKlikket()){
-                p.println("heghw");
+               settings.players =false;
+
                 settings.btnonePlayer.registrerRelease();
             }
             if (settings.btntwoPlayers.erKlikket()){
-                p.println("heghw");
+
+                settings.players = true;
                 settings.btntwoPlayers.registrerRelease();
             }
 
