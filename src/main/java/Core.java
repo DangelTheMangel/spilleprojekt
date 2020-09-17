@@ -44,7 +44,8 @@ public class Core extends PApplet {
         bagground = requestImage("Stars.png");
 
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-2), playerCar, 'a','A','d','D'));
-            Monkeys.add(new CarPlayer2(this, new PVector(200, 200), new PVector(0, -2), playerCar, 'j', 'J', 'l', 'L'));
+        Monkeys.add(new CarPlayer2( this, new PVector(200,200),new PVector(0,-2), playerCar, 'j','J','l','L'));
+
         for(int I=0; I<1; I++){
             Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
         }
@@ -55,11 +56,8 @@ public class Core extends PApplet {
     public void draw() {
 
         Monkeys.get(0).Controls();
-        if(menu.settings.multiplePlayers()) {
-            Monkeys.get(1).Controls();
-            Monkeys.get(1).drawCar();
-            Monkeys.get(1).collision(Monkeys);
-        }
+        Monkeys.get(1).Controls();
+
         if(!menu.btnPlay.erKlikket()) {
             menu.DrawMenu(bagground,info);
         }else{
