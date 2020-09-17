@@ -82,7 +82,11 @@ boolean infoMenu = false;
 
         }
         if(infoMenu) {
-            p.image(info, p.width/2, p.height/2, 677,376);
+            p.image(info, p.width/2, p.height/3, p.width/2,p.height/2);
+            p.textSize(15);
+            p.textMode(p.CENTER);
+            p.text("Regler \n vær den sidste på banen for at vinde. \n saml power-ups op for at få en \nfordel mod de andre\n når du skuber andre bliver de \n hurtigere og du bliver langsommer.",p.width/2 - p.width/4, p.height - p.height/3 - p.height/12 );
+            p.textMode(p.CORNER);
             exitInfo.tegnKnap();
             if(exitInfo.erKlikket()){
                 menuTrue = true;

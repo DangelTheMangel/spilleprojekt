@@ -81,8 +81,8 @@ public class Core extends PApplet {
                 ellipse(width/2,height/2,arenaRadius,arenaRadius);
                 image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
 
-                for(int i = 1; i<Monkeys.size();++i){
-                    if(Monkeys.get(i).OVerTHEEdge){
+                for(int i = 2; i<Monkeys.size();++i){
+                    if(Monkeys.get(i).OVerTHEEdge ){
                         Monkeys.remove(i);
                     }
                 }
@@ -101,7 +101,7 @@ public class Core extends PApplet {
                 }else {
                     arenaRadius = width;
                 }
-                if(Monkeys.get(0).OVerTHEEdge){
+                if(Monkeys.get(0).OVerTHEEdge && Monkeys.get(1).OVerTHEEdge)   {
 
                     setup();
                     Monkeys.get(0).OVerTHEEdge = false;
