@@ -10,8 +10,9 @@ public class MainMenu {
     AlmindeligKnap btnQuit;
     Settings settings;
     AlmindeligKnap exitInfo;
-boolean menuTrue = true;
-boolean infoMenu = false;
+
+    boolean menuTrue = true;
+    boolean infoMenu = false;
 
     public MainMenu(PApplet p, int i ) {
         this.p = p;
@@ -30,21 +31,22 @@ boolean infoMenu = false;
     public void DrawMenu(PImage baground,PImage info){
 
 
-                p.clear();
-                p.imageMode(p.CENTER);
-                p.image(baground, p.width / 2, p.height / 2, p.width, p.height);
+            p.clear();
+            p.imageMode(p.CENTER);
+            p.image(baground, p.width / 2, p.height / 2, p.width, p.height);
 
-                //p.textAlign(p.CENTER, p.BOTTOM);
-                p.textSize(35);
-                p.text("Crazy taxi driver!!!!!!", p.width / 4, p.height / 12);
-                p.textSize(25);
-                if(menuTrue) {
+            //p.textAlign(p.CENTER, p.BOTTOM);
+            p.textSize(35);
+            p.text("Crazy taxi driver!!!!!!", p.width / 4, p.height / 12);
+            p.textSize(25);
+            if(menuTrue) {
                 btnPlay.tegnKnap();
                 btnInfo.tegnKnap();
                 btnSetting.tegnKnap();
                 btnQuit.tegnKnap();
-
             }
+
+
         if(btnQuit.erKlikket()){
             p.exit();
             btnQuit.registrerRelease();
@@ -58,22 +60,19 @@ boolean infoMenu = false;
                 btnSetting.registrerRelease();
 
             }
-            if(settings.onePlayer.erKlikket()){
 
-                settings.players = false;
-                settings.onePlayer.registrerRelease();
-
+            if(settings.btnonePlayer.erKlikket()){
+                p.println("heghw");
+                settings.btnonePlayer.registrerRelease();
             }
-            if(settings.twoPlayers.erKlikket()){
-
-                settings.players = true;
-                p.println("players");
-                settings.twoPlayers.registrerRelease();
-
+            if (settings.btntwoPlayers.erKlikket()){
+                p.println("heghw");
+                settings.btntwoPlayers.registrerRelease();
             }
+
 
         }
-        p.println(menuTrue);
+
         if(btnInfo.erKlikket()){
             menuTrue = false;
             infoMenu = true;
