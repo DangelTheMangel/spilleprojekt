@@ -24,7 +24,7 @@ public class Core extends PApplet {
     }
 
 
-    public float arenaRadius =500;
+    public float arenaRadius = height;
 
     @Override
     public void setup() {frameRate(60);
@@ -43,8 +43,8 @@ public class Core extends PApplet {
         bagground = requestImage("Stars.png");
 
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-4), playerCar));
-        for(int I=0; I<1; I++){
-            Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
+        for(int I=0; I<50; I++){
+            Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-4), EnemyCar));
         }
     }
 
