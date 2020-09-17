@@ -13,6 +13,7 @@ public class Core extends PApplet {
     PImage picklePower;
     AlmindeligKnap BackToMenu;
     PImage info;
+    int antalBiler = 100;
 
 
     MainMenu menu;
@@ -22,6 +23,7 @@ public class Core extends PApplet {
     @Override
     public void settings() {
         size(640, 480);
+        noSmooth();
 
     }
 
@@ -48,7 +50,7 @@ public class Core extends PApplet {
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-2), playerCar, 'a','A','d','D'));
         Monkeys.add(new CarPlayer2( this, new PVector(200,200),new PVector(0,-2), playerCar, 'j','J','l','L'));
 
-        for(int I=0; I<1; I++){
+        for(int I=0; I<antalBiler; I++){
             Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
         }
     }
