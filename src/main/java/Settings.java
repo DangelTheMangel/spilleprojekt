@@ -8,6 +8,8 @@ public class Settings  {
 
     int a = 0;
     int x, y;
+    int posX,posY, smallBtn, bigBtnX,BigBtnY;
+    float Overskrift , broedtext ;
     boolean updated = false;
   public boolean players = false;
     AlmindeligKnap btnUpSize;
@@ -22,26 +24,52 @@ public class Settings  {
 
     Settings(PApplet p){
         this.p = p;
-        btnUpSize = new AlmindeligKnap(p, 0, 0, p.height / 6, p.height / 6, "<");
-        btnDownSize = new AlmindeligKnap(p, (p.height / 6) * 4 + (p.height / 6), 0, p.height / 6, p.height / 6, "> ");
-        exitSettingse = new AlmindeligKnap(p, p.width/2, p.height - p.height/12, p.width/2, p.height/12,"Back");
-        btntwoPlayers = new AlmindeligKnap(p, p.width/2, p.height - p.height/2, p.width/2, p.height/12,"Two players");
-        btnonePlayer = new AlmindeligKnap(p, p.width/2, p.height - p.height/3, p.width/2, p.height/12,"one Player");
+        smallBtn = p.height/6;
+        btnUpSize = new AlmindeligKnap(p, p.width/12, p.width/12, smallBtn, smallBtn, "<");
+        btnDownSize = new AlmindeligKnap(p, p.width - (p.width/12 + smallBtn), p.width/12, smallBtn, smallBtn, "> ");
+
+
+        exitSettingse = new AlmindeligKnap(p, p.width/4, (int) (p.height / 12 + p.height / 6 + (((p.width/13) * 6))), p.width/2, p.height/12,"Back");
+
+        btntwoPlayers = new AlmindeligKnap(p, p.width/12, p.height - p.height/2, smallBtn, smallBtn,"+");
+        btnonePlayer = new AlmindeligKnap(p, p.width - (p.width/12 + smallBtn), p.height - p.height/2, smallBtn, smallBtn,"-");
+
+        Overskrift = p.width/24;
+        broedtext = p.width/48;
     }
 
     public void DrawSettings(){
+        Overskrift = (float) ((p.width/48) * 1.5);
+        broedtext = p.width/48;
         p.clear();
         p.background(200);
 
-      p.textSize(30);
+
+        p.textSize(Overskrift);
+        p.textAlign(p.CENTER, p.TOP);
+        p.text("Resolution: ", p.width/2,0);
+        p.text("Gamemode: ", p.width/2, (p.height - p.width/20) - p.height/2);
+
+        p.textSize(broedtext);
+
+
+
+
+
+
         if(a == resolution.length -1) {
-            p.text("screen resolution: \n " + "FullScreen", 10,250);
+            p.text("screen resolution: \n " + "FullScreen", p.width/2, p.width/12);
         }else{
-            p.text("screen resolution: \n" + (int) resolution[a].x + "x" + (int) resolution[a].y, 10,250);
+            p.text("screen resolution: \n" + (int) resolution[a].x + "x" + (int) resolution[a].y, p.width/2, p.width/12);
         }
 
-        p.textSize(25);
+        if(players) {
+            p.text("Multiplayer", p.width/2, p.height - p.height/2);
+        }else{
+            p.text("Singleplayer", p.width/2, p.height - p.height/2);
+        }
 
+        p.textAlign(p.CORNER, p.CORNER);
         btnUpSize.tegnKnap();
         btnDownSize.tegnKnap();
         exitSettingse.tegnKnap();
@@ -103,6 +131,13 @@ public class Settings  {
         btnDownSize.registrerKlik(p.mouseX,p.mouseY);
 
         exitSettingse.registrerKlik(p.mouseX,p.mouseY);
+
+    }
+    void Restknap(Knap knap, int posX,int poxY,int sizeX,int sizeY){
+        knap.positionX = posX;
+        knap.positionY = poxY;
+        knap.sizeX = sizeX;
+        knap.sizeY = sizeY;
 
     }
 }
