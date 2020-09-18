@@ -89,6 +89,7 @@ public class Settings  {
                 p.frame.setLocation(x, y);
                 p.frame.setSize((int) resolution[a].x, (int) resolution[a].y);
             }
+            RestSettings();
             btnDownSize.registrerRelease();
         }
 
@@ -106,8 +107,10 @@ public class Settings  {
                 p.frame.setLocation(x, y);
                 p.frame.setSize((int) resolution[a].x, (int) resolution[a].y);
             }
+            RestSettings();
 
             btnUpSize.registrerRelease();
+
         }
 
 
@@ -131,6 +134,15 @@ public class Settings  {
         btnDownSize.registrerKlik(p.mouseX,p.mouseY);
 
         exitSettingse.registrerKlik(p.mouseX,p.mouseY);
+
+    }
+    void RestSettings(){
+        smallBtn = p.height/6;
+        Restknap(exitSettingse, p.width/4,(int) (p.height / 12 + p.height / 6 + (((p.width/13) * 5))),p.width/2,p.height/12);
+        Restknap(btnUpSize, p.width/12, p.width/12, smallBtn, smallBtn );
+        Restknap(btnDownSize, p.width - (p.width/12 + smallBtn), p.width/12, smallBtn, smallBtn);
+        Restknap(btntwoPlayers,p.width/12, p.height - p.height/2, smallBtn, smallBtn);
+        Restknap(btnonePlayer,p.width - (p.width/12 + smallBtn), p.height - p.height/2, smallBtn, smallBtn);
 
     }
     void Restknap(Knap knap, int posX,int poxY,int sizeX,int sizeY){
