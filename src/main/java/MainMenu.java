@@ -23,7 +23,7 @@ public class MainMenu {
             btnSetting = new AlmindeligKnap(p, p.width / 4, (int) (p.height / 12 + p.height / 6 + (((p.width/13) * 3))), p.width / 2, p.height / 12, "Settings");
             btnQuit = new AlmindeligKnap(p, p.width / 4, (int) (p.height / 12 + p.height / 6 + (((p.width/13) * 4))), p.width / 2, p.height / 12, "Quit");
             settings = new Settings(p);
-        exitInfo = new AlmindeligKnap(p, p.width/4, p.height - p.height/12, p.width/2, p.height/12,"Back");
+        exitInfo = new AlmindeligKnap(p, p.width/4, (int) (p.height / 12 + p.height / 6 + (((p.width/13) * 6))), p.width/2, p.height/12,"Back");
 
     }
 
@@ -67,6 +67,7 @@ public class MainMenu {
                 RestMenuKnap(btnInfo, 2);
                 RestMenuKnap(btnSetting,3);
                 RestMenuKnap(btnQuit,4);
+                RestMenuKnap(exitInfo,5);
                 settings.exitSettingse.registrerRelease();
                 btnSetting.registrerRelease();
 
@@ -95,9 +96,10 @@ public class MainMenu {
 
         }
         if(infoMenu) {
+            menuTrue = false;
             p.imageMode(p.CORNER);
             p.fill(200);
-            p.rect(p.width/12, p.height - p.height/3 - p.height/6, p.width -(p.width/12)*2 ,p.height - (p.height/2 + p.height/8));
+            p.rect(p.width/12, p.height - p.height/3 - p.height/6, p.width -(p.width/12)*2 ,p.height - (p.height/2 + p.height/12));
             p.fill(0);
             p.image(info, 0 + (p.width/2)/2, p.width/96, p.width/2,p.height/2);
             p.textSize(p.width/60);
@@ -106,7 +108,7 @@ public class MainMenu {
             p.text(" Rules:\n" +
                     " be the last on the field to win. pick up power-ups to get one\n" +
                     " advantage over the others. when you push others they\n" +
-                    " become faster and you become slower.",p.width/12, p.height - p.height/3 - p.height/12 );
+                    " become faster and you become slower.",p.width/12, p.height - p.height/3 - p.height/14 );
             p.textMode(p.CORNER);
             exitInfo.tegnKnap();
             if(exitInfo.erKlikket()){
