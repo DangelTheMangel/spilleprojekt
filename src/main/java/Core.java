@@ -49,7 +49,7 @@ public class Core extends PApplet {
         arenaRadius =height;
         levelPic = requestImage("MoonBIG.png");
         bagground = requestImage("Stars.png");
-        powerUps.add(new TeleporterPowerUp(this,picklePower,new PVector(width/2,height/2)));
+        //powerUps.add(new TeleporterPowerUp(this,picklePower,new PVector(width/2,height/2)));
         powerUps.add(new Amper(this,amperPower,new PVector(width/2,height/2)));
 
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-2), playerCar, 'a','A','d','D'));
