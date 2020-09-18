@@ -24,8 +24,8 @@ PApplet p ;
     @Override
     void Movement() {
 
-        posit.x += speed.x * sMulti;
-        posit.y += speed.y * sMulti;
+        posit.x += speed.x;
+        posit.y += speed.y;
 
         //Lav noget med at den skal samle powerups. Det her bliver nok rodet.
         //Jeg ville nok lave en række if-statements Yanderedev agtigt.
