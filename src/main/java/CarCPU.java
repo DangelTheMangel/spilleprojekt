@@ -34,8 +34,8 @@ public class CarCPU extends Car{
 
     void Movement() {
         speed.rotate(rotation);
-        posit.x += speed.x * sMulti;
-        posit.y += speed.y * sMulti;
+        posit.x += speed.x ;
+        posit.y += speed.y ;
 
         rotation = p.random(rotationMin,rotationMax);
     }
