@@ -20,8 +20,6 @@ public class Car {
 
     PVector speed = new PVector(0, 1); //Speed
 
-    float sMulti; //Speed Multiplier (Det her skal bruges med speed powerups og sådan...
-
     PImage car;
     ArrayList<PowerUP> pp;
     boolean OVerTHEEdge;
@@ -38,18 +36,17 @@ public class Car {
 
         this.speed = speed;
         this.car = car;
-        sMulti = 1;
     }
 
 
 
     void Movement() {
 
-        p.println("Movement", posit, speed.x, "sMulti=" + sMulti);
+        p.println("Movement", posit, speed.x, "sMulti=");
 
-        posit.x += speed.x * sMulti;
+        posit.x += speed.x;
 
-        posit.y += speed.y * sMulti;
+        posit.y += speed.y;
 
 
         //Lav noget med at den skal samle powerups. Det her bliver nok rodet.
@@ -147,3 +144,5 @@ public class Car {
         if (p.key == 'a' || p.key =='A') D = false;
     }
 }
+
+//AMPER: this.speed = this.speed.mult(2);
