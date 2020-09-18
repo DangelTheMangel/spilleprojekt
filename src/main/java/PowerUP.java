@@ -4,7 +4,7 @@ import processing.core.PVector;
 
 import java.util.ArrayList;
 
-public class PowerUP {
+public abstract class PowerUP {
 
     PApplet p;
     PImage PowerPhoto;
@@ -19,6 +19,8 @@ public class PowerUP {
         p.image(PowerPhoto , position.x , position.y);
 
     }
+
+    public void Function(Car car ){}
 
 
 
