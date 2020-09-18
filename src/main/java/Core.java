@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PFont;
 import processing.core.PImage;
 import processing.core.PVector;
 
@@ -11,7 +12,7 @@ public class Core extends PApplet {
     PImage levelPic;
     PImage bagground;
     PImage picklePower,amperPower, stonePower, teleporterPower, oilPower ;
-
+    PFont font;
     AlmindeligKnap BackToMenu;
     PImage info;
     int antalBiler = 1;
@@ -33,13 +34,14 @@ public class Core extends PApplet {
 
     @Override
     public void setup() {frameRate(60);
+        powerUps.clear();
         Monkeys.clear();
         print("w "+ width + "h " + height);
         loadPic();
         BackToMenu = new AlmindeligKnap(this, width/2, height - height/12, width/2, height/12,"Back");
         menu = new MainMenu(this, 1);
         arenaRadius =height;
-
+        font = createFont("Fipps-Regular.otf", 32);
 
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-2), playerCar, 'a','A','d','D'));
         Monkeys.add(new CarPlayer2( this, new PVector(200,200),new PVector(0,-2), playerCar, 'j','J','l','L'));
@@ -52,15 +54,13 @@ public class Core extends PApplet {
 
     @Override
     public void draw() {
-        if(menu.settings.players = false){
-            Monkeys.get(1).OVerTHEEdge = true;
-        }
-
+        textFont(font);
         Monkeys.get(0).Controls();
 
 
         if(!menu.btnPlay.erKlikket()) {
             menu.DrawMenu(bagground,info);
+
         }else{
             clear();
 
