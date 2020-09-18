@@ -92,8 +92,10 @@ public class Core extends PApplet {
                 }
 
 
-                for(PowerUP pickle: powerUps){
+                for(int i = 0 ; i < powerUps.size(); ++i){
+                    PowerUP pickle = powerUps.get(i);
                     pickle.DrawPowerUp();
+                    pickle.KillYouslef(powerUps, i);
                 }
                 if(menu.settings.multiplePlayers()){
                     Monkeys.get(1).Controls();
