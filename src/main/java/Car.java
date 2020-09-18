@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 
 public class Car {
-
     PApplet p;
 
     //movement
@@ -93,11 +92,6 @@ public class Car {
             }
         }
 
-
-
-
-
-
     void OverEdge(float rad){
         PVector lengthCar = new PVector(posit.x - p.width / 2, posit.y - p.height / 2);
         lengthCar.mag();
@@ -110,7 +104,6 @@ public class Car {
 
 
     void drawCar() {
-
         p.fill(0,0,250);
         p.pushMatrix();
 
@@ -130,7 +123,6 @@ public class Car {
     void Controls() { //Noget går galt her når man trykker på begge knapper på samme tid,
                       // og vi skal have noget der tjekker om det sker og gør noget ved det.
         if (p.keyPressed) {
-
                 if(p.keyPressed & p.key == 'd'){
                     D=true;
                 }
@@ -145,13 +137,11 @@ public class Car {
                 speed.rotate(0.1f);}
                 else{
                 speed.rotate(0);}
-
             }
 
         }
     void keyreleased(){
         if (p.key == 'd' || p.key =='D') A = false;
         if (p.key == 'a' || p.key =='A') D = false;
-
     }
-    }
+}

@@ -34,7 +34,6 @@ public class CarPlayer  extends Car {
         //Caper
 
         //Lav noget med at den skal kunne falde af platformen.
-
     }
 
     @Override
@@ -54,8 +53,6 @@ public class CarPlayer  extends Car {
             p.popMatrix();
 
             p.rectMode(p.CORNER);
-
-
     }
 
     void move() {
@@ -95,7 +92,6 @@ public class CarPlayer  extends Car {
     void keyreleased(){
         if (p.key == leftKey || p.key ==leftKeyBig) A = false;
         if (p.key == rightKey || p.key ==rightKeyBig) D = false;
-
     }
 
 
