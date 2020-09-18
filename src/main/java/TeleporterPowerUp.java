@@ -11,8 +11,8 @@ public class TeleporterPowerUp extends PowerUP {
     }
 
     public void Function(Car car ){
-        car.posit.x = p.random(p.width,p.width); //ville være nice at tage cores arenaradius og bruge den her. -Casper
-        car.posit.y = p.random(p.height,p.height);
+        //car.posit.x = p.random(p.width,p.width); //ville være nice at tage cores arenaradius og bruge den her. -Casper
+        //car.posit.y = p.random(p.height,p.height);
         p.println("Fuck");
     }
 }

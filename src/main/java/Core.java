@@ -12,6 +12,7 @@ public class Core extends PApplet {
     PImage bagground;
     PImage picklePower;
     PImage amperPower;
+    PImage oilPower;
     AlmindeligKnap BackToMenu;
     PImage info;
     int antalBiler = 1;
@@ -40,6 +41,7 @@ public class Core extends PApplet {
         info = requestImage("info_fall_cars.png");
         picklePower = requestImage("jesuspickel.png");
         amperPower = requestImage("Amper.png");
+        oilPower = requestImage("Oil.png");
 
         BackToMenu = new AlmindeligKnap(this, width/2, height - height/12, width/2, height/12,"Back");
 
