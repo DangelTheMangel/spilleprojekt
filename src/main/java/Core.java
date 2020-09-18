@@ -73,6 +73,8 @@ public class Core extends PApplet {
             image(bagground,width/2,height/2, width, height );
             winIf(0,1);
             winIf(1,0);
+            PpCollision();
+
          {
                 fill(0,0,0, 100);
                 ellipse(width/2,height/2,arenaRadius,arenaRadius);
@@ -129,7 +131,7 @@ public class Core extends PApplet {
     }
     public void keyReleased(){
         for(Car Bruh : Monkeys) {
-            println("taber");
+            //println("taber");
             Bruh.keyreleased();
         }
     }
@@ -147,9 +149,15 @@ public class Core extends PApplet {
         }
     }
     public void PpCollision(){
+
         for (int i =0 ; i < Monkeys.size();++i){
+
             for(int j = 0; j < powerUps.size(); ++j){
-                if(Monkeys.get(i).posit.x >powerUps.get(i).position.x&&Monkeys.get(i).posit.x <powerUps.get(i).position.x+20&&Monkeys.get(i).posit.y <powerUps.get(i).position.y&&Monkeys.get(i).posit.y >powerUps.get(i).position.y+20){
+                println("car" + Monkeys.get(i).posit.x + ";" + Monkeys.get(i).posit.x + "Pickel: " + powerUps.get(j).position.x + ";" + powerUps.get(j).position.x);
+                if(Monkeys.get(i).posit.x >powerUps.get(j).position.x
+                        &&Monkeys.get(i).posit.x <powerUps.get(j).position.x+32&&
+                        Monkeys.get(i).posit.y >powerUps.get(j).position.y
+                        &&Monkeys.get(i).posit.y < powerUps.get(j).position.y+32){
                     println("hehehe");
                 }
             }
