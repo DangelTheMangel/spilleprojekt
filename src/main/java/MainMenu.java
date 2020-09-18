@@ -60,6 +60,7 @@ public class MainMenu {
         }
         if(btnSetting.erKlikket()){
             menuTrue = false;
+            infoMenu = false;
             settings.DrawSettings();
             if(settings.exitSettingse.erKlikket()){
                 menuTrue = true;
