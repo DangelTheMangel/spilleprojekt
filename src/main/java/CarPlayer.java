@@ -39,20 +39,23 @@ public class CarPlayer  extends Car {
 
     @Override
     void drawCar() {
-        p.fill(0, 0, 250);
-        p.pushMatrix();
-        if (rotating == true) {
-            p.rectMode(p.CENTER);
-            p.imageMode(p.CENTER);
-            p.translate(posit.x, posit.y);
-            p.rotate(speed.heading());
-        }
 
-        //p.rect(0, 0, 32, 16);
-        p.image(car, 0,0);
-        p.popMatrix();
+            p.fill(0, 0, 250);
+            p.pushMatrix();
+            if (rotating == true) {
+                p.rectMode(p.CENTER);
+                p.imageMode(p.CENTER);
+                p.translate(posit.x, posit.y);
+                p.rotate(speed.heading());
+            }
 
-        p.rectMode(p.CORNER);
+            //p.rect(0, 0, 32, 16);
+            p.image(car, 0,0);
+            p.popMatrix();
+
+            p.rectMode(p.CORNER);
+
+
     }
 
     void move() {

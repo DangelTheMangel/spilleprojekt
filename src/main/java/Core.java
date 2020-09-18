@@ -58,6 +58,9 @@ public class Core extends PApplet {
 
     @Override
     public void draw() {
+        if(menu.settings.players = false){
+            Monkeys.get(1).OVerTHEEdge = true;
+        }
 
         Monkeys.get(0).Controls();
 
@@ -68,17 +71,9 @@ public class Core extends PApplet {
             clear();
 
             image(bagground,width/2,height/2, width, height );
-
-            if(Monkeys.size() == 1 && Monkeys.get(0).OVerTHEEdge == false){
-                if(BackToMenu.erKlikket()){
-                    setup();
-                    BackToMenu.registrerRelease();
-                }
-                Monkeys.get(0).rotating = false;
-                text("you Won!", 10,10);
-                BackToMenu.tegnKnap();
-
-            }{
+            winIf(0,1);
+            winIf(1,0);
+         {
                 fill(0,0,0, 100);
                 ellipse(width/2,height/2,arenaRadius,arenaRadius);
                 image(levelPic,width/2,height/2, arenaRadius,arenaRadius );
@@ -110,6 +105,7 @@ public class Core extends PApplet {
                         Bruh.collision(Monkeys);
                         Bruh.OverEdge(arenaRadius);
 
+
                     }
                 }else {
                     arenaRadius = width;
@@ -135,6 +131,19 @@ public class Core extends PApplet {
         for(Car Bruh : Monkeys) {
             println("taber");
             Bruh.keyreleased();
+        }
+    }
+
+    public void winIf(int player, int modstanderplayer){
+        if(Monkeys.size() == 2 && Monkeys.get(player).OVerTHEEdge == false && Monkeys.get(modstanderplayer).OVerTHEEdge == true){
+            if(BackToMenu.erKlikket()){
+                setup();
+                BackToMenu.registrerRelease();
+            }
+            Monkeys.get(0).rotating = false;
+            text("you Won!", 10,10);
+            BackToMenu.tegnKnap();
+
         }
     }
 

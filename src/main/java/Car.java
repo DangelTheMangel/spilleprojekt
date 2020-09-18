@@ -24,7 +24,7 @@ public class Car {
     float sMulti; //Speed Multiplier (Det her skal bruges med speed powerups og sådan...
 
     PImage car;
-
+    ArrayList<PowerUP> pp;
     boolean OVerTHEEdge;
 
     //meta
@@ -122,6 +122,8 @@ public class Car {
         p.rect(0, 0, 50, 20);
         p.popMatrix();
     }
+
+
 
 
 //boomer
