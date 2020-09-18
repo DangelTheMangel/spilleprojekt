@@ -10,7 +10,6 @@ public class JesusPowerUp extends PowerUP {
 
     @Override
     public void Function(Car car) {
-        car.posit.x = p.random(p.width,p.width);
-        car.posit.y = p.random(p.height,p.height);
+        car.speed = car.speed.mult(30f);
     }
 }

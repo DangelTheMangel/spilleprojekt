@@ -30,8 +30,8 @@ public abstract class PowerUP {
             p.println("Casper siger n orde");
             pp.remove(i);
         }
-
     }
+
 
 
 
