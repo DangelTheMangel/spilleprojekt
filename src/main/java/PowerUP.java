@@ -2,20 +2,26 @@ import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PVector;
 
+import java.util.ArrayList;
+
 public class PowerUP {
+
     PApplet p;
     PImage PowerPhoto;
-    PVector Postion;
-    PowerUP(PApplet p, PImage PowerPhoto,PVector Postion ){
+    PVector position;
+    PowerUP(PApplet p, PImage PowerPhoto,PVector position){
         this.p = p;
         this.PowerPhoto = PowerPhoto;
-        this.Postion = Postion;
+        this.position = position;
     }
 
     void DrawPowerUp(){
-        p.image(PowerPhoto , Postion.x , Postion.y);
+        p.image(PowerPhoto , position.x , position.y);
 
     }
+
+
+
 
 
 

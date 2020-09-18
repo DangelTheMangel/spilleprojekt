@@ -63,7 +63,7 @@ public class Car {
 
     }
 
-    void collision( ArrayList<Car> monkeys){
+    void collision( ArrayList<Car> monkeys ){
         for (int i = 0; i < monkeys.size(); i++) {
             if (this.posit.x != monkeys.get(i).posit.x || this.posit.y != monkeys.get(i).posit.y) {
 
@@ -87,8 +87,10 @@ public class Car {
                         speed.y -= newY;      //finder ny hastighed for begge bolde, der støder sammen
                         monkeys.get(i).speed.x += newX; //
                         monkeys.get(i).speed.y += newY; //
-                    }
+
+                         }
                 }
+
             }
         }
 

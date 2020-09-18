@@ -149,7 +149,9 @@ public class Core extends PApplet {
     public void PpCollision(){
         for (int i =0 ; i < Monkeys.size();++i){
             for(int j = 0; j < powerUps.size(); ++j){
-                if(Monkeys.get(i).posit.x == 1){}
+                if(Monkeys.get(i).posit.x >powerUps.get(i).position.x&&Monkeys.get(i).posit.x <powerUps.get(i).position.x+20&&Monkeys.get(i).posit.y <powerUps.get(i).position.y&&Monkeys.get(i).posit.y >powerUps.get(i).position.y+20){
+                    println("hehehe");
+                }
             }
         }
     }
