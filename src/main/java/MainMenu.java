@@ -18,7 +18,7 @@ public class MainMenu {
     public MainMenu(PApplet p, int i ) {
         this.p = p;
 
-            btnPlay = new ToggleKnap(p, p.width / 4, p.height / 6, p.width / 2, p.height / 12, "PLay");
+            btnPlay = new ToggleKnap(p, p.width / 4, p.height / 6, p.width / 2, p.height / 12, "Play");
             btnInfo = new AlmindeligKnap(p, p.width / 4, p.height / 12 + p.height / 6 + 10, p.width / 2, p.height / 12, "How to play");
             btnSetting = new AlmindeligKnap(p, p.width / 4, 2 * p.height / 12 + p.height / 6 + 20, p.width / 2, p.height / 12, "Settings");
             btnQuit = new AlmindeligKnap(p, p.width / 4, 3 * p.height / 12 + p.height / 6 + 30, p.width / 2, p.height / 12, "Quit");
