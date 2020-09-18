@@ -13,7 +13,7 @@ public class Core extends PApplet {
     PImage picklePower;
     AlmindeligKnap BackToMenu;
     PImage info;
-    int antalBiler = 100;
+    int antalBiler = 1;
 
 
     MainMenu menu;
@@ -147,9 +147,9 @@ public class Core extends PApplet {
         }
     }
     public void PpCollision(){
-        for(int i =0 ; i < Monkeys.size();++i){
+        for (int i =0 ; i < Monkeys.size();++i){
             for(int j = 0; j < powerUps.size(); ++j){
-                if(Monkeys.get(i).posit.x == 1)
+                if(Monkeys.get(i).posit.x == 1){}
             }
         }
     }
