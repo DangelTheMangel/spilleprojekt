@@ -38,7 +38,7 @@ public class Core extends PApplet {
         Monkeys.clear();
         print("w "+ width + "h " + height);
         loadPic();
-        BackToMenu = new AlmindeligKnap(this, width/2, height - height/12, width/2, height/12,"Back");
+        BackToMenu = new AlmindeligKnap(this, width/4,(int) (height / 12 + height / 6 + (((width/13) * 5))),width/2,height/12,"Back");
         menu = new MainMenu(this, 1);
         arenaRadius =height;
         font = createFont("Fipps-Regular.otf", 32);
@@ -65,8 +65,7 @@ public class Core extends PApplet {
             clear();
 
             image(bagground,width/2,height/2, width, height );
-            winIf(0,1);
-            winIf(1,0);
+
             PpCollision();
 
          {
@@ -93,7 +92,8 @@ public class Core extends PApplet {
                     Monkeys.get(1).collision(Monkeys);
                 }
                 if(Monkeys.get(0).rotating){
-                    arenaRadius -= 0.2;
+                    float fra = (float) (width * 0.0002);
+                    arenaRadius -= fra;
                     for(PowerUP pickle: powerUps){
                         pickle.DrawPowerUp();
                     }
@@ -115,6 +115,8 @@ public class Core extends PApplet {
                     Monkeys.get(0).OVerTHEEdge = false;
 
                 }
+             winIf(0,1);
+             winIf(1,0);
             }
 
 
@@ -139,8 +141,14 @@ public class Core extends PApplet {
                 setup();
                 BackToMenu.registrerRelease();
             }
+            Restknap(BackToMenu,width/4,(int) (height / 12 + height / 6 + (((width/13) * 5))),width/2,height/12);
             Monkeys.get(0).rotating = false;
-            text("you Won!", 10,10);
+            textAlign(CENTER);
+            int vinder = player +1;
+            fill(0);
+            text("Player"+ vinder + " Won!", width/2,height/2);
+            textAlign(CORNER);
+            textSize(width/60);
             BackToMenu.tegnKnap();
 
         }
@@ -196,6 +204,13 @@ public class Core extends PApplet {
         oilPower = requestImage("Oil.png");
         levelPic = requestImage("MoonBIG.png");
         bagground = requestImage("Stars.png");
+
+    }
+    void Restknap(Knap knap, int posX,int poxY,int sizeX,int sizeY){
+        knap.positionX = posX;
+        knap.positionY = poxY;
+        knap.sizeX = sizeX;
+        knap.sizeY = sizeY;
 
     }
 

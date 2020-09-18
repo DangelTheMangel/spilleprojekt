@@ -49,7 +49,13 @@ public class Settings  {
         p.textAlign(p.CENTER, p.TOP);
         p.text("Resolution: ", p.width/2,0);
         p.text("Gamemode: ", p.width/2, (p.height - p.width/20) - p.height/2);
-
+        p.textAlign(p.CORNER, p.CORNER);
+        btnUpSize.tegnKnap();
+        btnDownSize.tegnKnap();
+        exitSettingse.tegnKnap();
+        btnonePlayer.tegnKnap();
+        btntwoPlayers.tegnKnap();
+        p.textAlign(p.CENTER, p.TOP);
         p.textSize(broedtext);
 
 
@@ -69,12 +75,9 @@ public class Settings  {
             p.text("Singleplayer", p.width/2, p.height - p.height/2);
         }
 
-        p.textAlign(p.CORNER, p.CORNER);
-        btnUpSize.tegnKnap();
-        btnDownSize.tegnKnap();
-        exitSettingse.tegnKnap();
-        btnonePlayer.tegnKnap();
-        btntwoPlayers.tegnKnap();
+
+
+
         if(btnDownSize.erKlikket()) {
             a--;
             if (a<0)
