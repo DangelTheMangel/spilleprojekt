@@ -10,9 +10,8 @@ public class Core extends PApplet {
     PImage playerCar ,EnemyCar;
     PImage levelPic;
     PImage bagground;
-    PImage picklePower;
-    PImage amperPower;
-    PImage oilPower;
+    PImage picklePower,amperPower, stonePower, teleporterPower, oilPower ;
+
     AlmindeligKnap BackToMenu;
     PImage info;
     int antalBiler = 1;
@@ -36,27 +35,15 @@ public class Core extends PApplet {
     public void setup() {frameRate(60);
         Monkeys.clear();
         print("w "+ width + "h " + height);
-        playerCar = requestImage("dårligblå.png");
-        EnemyCar = requestImage("grå.png");
-        info = requestImage("info_fall_cars.png");
-        picklePower = requestImage("jesuspickel.png");
-        amperPower = requestImage("Amper.png");
-        oilPower = requestImage("Oil.png");
-
+        loadPic();
         BackToMenu = new AlmindeligKnap(this, width/2, height - height/12, width/2, height/12,"Back");
-
-
-
         menu = new MainMenu(this, 1);
         arenaRadius =height;
-        levelPic = requestImage("MoonBIG.png");
-        bagground = requestImage("Stars.png");
-        //powerUps.add(new TeleporterPowerUp(this,picklePower,new PVector(width/2,height/2)));
-        powerUps.add(new Amper(this,amperPower,new PVector(width/2,height/2)));
+
 
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-2), playerCar, 'a','A','d','D'));
         Monkeys.add(new CarPlayer2( this, new PVector(200,200),new PVector(0,-2), playerCar, 'j','J','l','L'));
-
+        spawnPowerUp();
         for(int I=0; I<antalBiler; I++){
             Monkeys.add(new CarCPU(this, new PVector(random(100,400),random(100,400)),new PVector(0,-1), EnemyCar));
         }
@@ -93,12 +80,13 @@ public class Core extends PApplet {
                     }
                 }
 
-
+             spawnPowerUp();
                 for(int i = 0 ; i < powerUps.size(); ++i){
                     PowerUP pickle = powerUps.get(i);
                     pickle.DrawPowerUp();
                     pickle.KillYouslef(powerUps, i);
                 }
+
                 if(menu.settings.multiplePlayers()){
                     Monkeys.get(1).Controls();
                     Monkeys.get(1).drawCar();
@@ -172,6 +160,43 @@ public class Core extends PApplet {
                 }
             }
         }
+    }
+
+    public void spawnPowerUp(){
+        int ppNumb = (int) random(0,1000);
+        println(ppNumb);
+        if(ppNumb == 1){
+            powerUps.add( new JesusPowerUp(this,picklePower,new PVector(random(width*0.1f,width*0.9f),random(height*0.1f,height*0.9f))));
+        }
+
+        if(ppNumb == 2){
+            powerUps.add(new Amper(this,amperPower,new PVector(random(width*0.1f,width*0.9f),random(height*0.1f,height*0.9f))));
+        }
+        if(ppNumb == 3){
+            powerUps.add(new StonePowerUP(this,stonePower, new PVector( random(width*0.1f,width*0.9f),random(height*0.1f,height*0.9f))));
+        }
+        if(ppNumb == 4){
+            powerUps.add(new TeleporterPowerUp(this, teleporterPower, new PVector( random(width*0.1f,width*0.9f),random(height*0.1f,height*0.9f)) ));
+        }
+
+        if(ppNumb == 5){
+            powerUps.add(new Oil(this, oilPower, new PVector( random(width*0.1f,width*0.9f),random(height*0.1f,height*0.9f))));
+
+        }
+    }
+
+    void loadPic(){
+        playerCar = requestImage("dårligblå.png");
+        EnemyCar = requestImage("grå.png");
+        info = requestImage("info_fall_cars.png");
+        picklePower = requestImage("jesuspickel.png");
+        amperPower = requestImage("Amper.png");
+        stonePower = requestImage("Stone.png");
+        teleporterPower = requestImage("Teleporter.png");
+        oilPower = requestImage("Oil.png");
+        levelPic = requestImage("MoonBIG.png");
+        bagground = requestImage("Stars.png");
+
     }
 
 }
