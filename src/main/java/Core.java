@@ -11,6 +11,7 @@ public class Core extends PApplet {
     PImage levelPic;
     PImage bagground;
     PImage picklePower;
+    PImage amperPower;
     AlmindeligKnap BackToMenu;
     PImage info;
     int antalBiler = 1;
@@ -38,6 +39,8 @@ public class Core extends PApplet {
         EnemyCar = requestImage("grå.png");
         info = requestImage("info_fall_cars.png");
         picklePower = requestImage("jesuspickel.png");
+        amperPower = requestImage("Amper.png");
+
         BackToMenu = new AlmindeligKnap(this, width/2, height - height/12, width/2, height/12,"Back");
 
 
@@ -47,6 +50,8 @@ public class Core extends PApplet {
         levelPic = requestImage("MoonBIG.png");
         bagground = requestImage("Stars.png");
         powerUps.add(new TeleporterPowerUp(this,picklePower,new PVector(width/2,height/2)));
+        powerUps.add(new Amper(this,amperPower,new PVector(width/2,height/2)));
+
         Monkeys.add(new CarPlayer( this, new PVector(250,200),new PVector(0,-2), playerCar, 'a','A','d','D'));
         Monkeys.add(new CarPlayer2( this, new PVector(200,200),new PVector(0,-2), playerCar, 'j','J','l','L'));
 

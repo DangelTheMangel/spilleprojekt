@@ -71,9 +71,7 @@ PApplet p ;
 
         if (p.keyPressed && p.key == rightKey || p.keyPressed && p.key == rightKeyBig) {
             l = true;
-        }
-
-      else  if (p.keyPressed && p.key == leftKey || p.keyPressed && p.key == leftKeyBig) {
+        } else if (p.keyPressed && p.key == leftKey || p.keyPressed && p.key == leftKeyBig) {
             j = true;
         }
 
@@ -93,10 +91,6 @@ PApplet p ;
         if (p.key == rightKey || p.key ==rightKeyBig) l = false;
 
     }
-
-
-
-
 }
 
 
