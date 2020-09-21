@@ -15,7 +15,7 @@ public class Core extends PApplet {
     PFont font;
     AlmindeligKnap BackToMenu;
     PImage info;
-    int antalBiler = 1;
+    int antalBiler = 100;
 
 
     MainMenu menu;
